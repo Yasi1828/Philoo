@@ -25,6 +25,7 @@ from django.urls import include, path
 from PhiloApp.views import index
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path('', index, name='index'),
     path('PhiloApp/', include('PhiloApp.urls')),
 ]
