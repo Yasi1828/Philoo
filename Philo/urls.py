@@ -24,5 +24,5 @@ Including another URLconf
 from django.urls import include, path
 
 urlpatterns = [
-    path('philoapp/', include('PhiloApp.urls')),
+    path('PhiloApp/', include('PhiloApp.urls')),
 ]

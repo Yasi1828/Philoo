@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Philosophers, Schools
 
 # Create your views here.
-def Philo_View(request):
+def index(request):
     Philosophers_content = Philosophers.objects.all()
     Schools_content = Schools.objects.all()
     
