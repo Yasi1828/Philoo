@@ -22,7 +22,9 @@ Including another URLconf
 # ]
 
 from django.urls import include, path
+from PhiloApp.views import index
 
 urlpatterns = [
+    path('', index, name='index'),
     path('PhiloApp/', include('PhiloApp.urls')),
 ]
