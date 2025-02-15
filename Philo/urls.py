@@ -23,6 +23,7 @@ Including another URLconf
 
 from django.urls import include, path
 from PhiloApp.views import index
+from django.contrib import admin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
