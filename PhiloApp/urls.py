@@ -1,12 +1,7 @@
-from django.shortcuts import render
-from .models import Philosophers, Schools
+from django.urls import path
+from . import views
 
-# Create your views here.
-def Philo_View(request):
-    Philosophers_content = Philosophers.objects.all()
-    Schools_content = Schools.objects.all()
-    
-    context = {'Philosophers' : Philosophers_content,
-               'Schools': Schools_content
-               }
-    return render(request, 'index.html', context=context)
+urlpatterns = [
+    path('', views.index, name='index'),  # Example view
+]
+
