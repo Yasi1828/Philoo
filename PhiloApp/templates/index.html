@@ -1,13 +1,98 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Philosophy In Progress</title>
- 
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
   </head>
   <body>
-    <h1>Philosophy in progress..</h1>
-    <p> 
-  </body>Explore philosophers and their schools of thought.</p>
+    <!-- Header Section -->
+    <header>
+      <h1>Philosophy In Progress</h1>
+      <p>Exploring the world of philosophy, one thought at a time.</p>
+    </header>
+
+    <!-- Philosophy In Progress Section -->
+    <section class="intro-section">
+      <div class="container">
+        <h2>About Philosophy In Progress</h2>
+        <p>
+          Welcome to Philosophy In Progress, a platform dedicated to exploring
+          the ideas and lives of great philosophers and their schools of
+          thought. Dive into the world of philosophy and discover the wisdom of
+          the ages.
+        </p>
+      </div>
+    </section>
+
+    <!-- Philosophers Section -->
+    <section class="philosophers-section">
+      <div class="container">
+        <h2>فلاسفه</h2>
+        <div class="philosophers-list">
+          {% for philosopher in Philosophers %}
+          <div class="philosopher-card">
+            {% if philosopher.picture %}
+            <img
+              src="{{ philosopher.picture.url }}"
+              alt="{{ philosopher.FullName }}"
+              class="philosopher-image"
+            />
+            {% endif %}
+            <h3>{{ philosopher.FullName }}</h3>
+
+            <p><strong>School:</strong> {{ philosopher.School.Name }}</p>
+            {% endif %}
+            <p><strong>موارد مرتبط:</strong> {{ philosopher.KeyIdeas }}</p>
+            <a href="{% url 'philosopher_detail' philosopher.id %}" class="btn"
+              >ادامه مطلب</a
+            >
+          </div>
+
+          {% endfor %}
+        </div>
+        <!-- Placeholder for Dynamic Albums -->
+        <div class="albums-placeholder">
+          <p>Dynamic albums for philosophers will be added here.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Schools Section -->
+    <section class="schools-section">
+      <div class="container">
+        <h2>Schools of Thought</h2>
+        <div class="schools-list">
+          {% for school in Schools %}
+          <div class="school-card">
+            <h3>{{ school.Name }}</h3>
+            <p>
+              <strong>Concept:</strong> {{ school.Concept|truncatewords:20 }}
+            </p>
+            <a href="{% url 'school_detail' school.id %}" class="btn"
+              >Learn More</a
+            >
+          </div>
+          {% endfor %}
+        </div>
+        <!-- Placeholder for Dynamic Albums -->
+        <div class="albums-placeholder">
+          <p>Dynamic albums for schools will be added here.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Philosophy In Progress. All rights reserved.</p>
+        <p>
+          {% comment %} <a href="#">About</a> | <a href="#">Contact</a> |
+          <a href="#">Privacy Policy</a> {% endcomment %}
+        </p>
+      </div>
+    </footer>
+  </body>
 </html>

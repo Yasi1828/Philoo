@@ -6,6 +6,7 @@ class Philosophers(models.Model):
     BirthDate = models.TextField()
     Bio = models.TextField()
     KeyIdeas = models.TextField()
+    picture = models.ImageField(upload_to='philosopher_images',null=True,blank=True)
 class Schools(models.Model):
     Name = models.CharField(max_length = 100)
     Concept = models.TextField()

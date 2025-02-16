@@ -24,9 +24,13 @@ Including another URLconf
 from django.urls import include, path
 from PhiloApp.views import index
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
     path('PhiloApp/', include('PhiloApp.urls')),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
