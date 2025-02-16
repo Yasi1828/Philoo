@@ -42,7 +42,7 @@
             />
             {% endif %}
             <h3>{{ philosopher.FullName }}</h3>
-
+            {% if philosopher.School %}
             <p><strong>School:</strong> {{ philosopher.School.Name }}</p>
             {% endif %}
             <p><strong>موارد مرتبط:</strong> {{ philosopher.KeyIdeas }}</p>
