@@ -8,4 +8,4 @@ class PhilosopherAdmin(admin.ModelAdmin):
     # ordering = ('-created_at',)
     
 admin.site.register(Schools)
-admin.site.register(Philosophers,PhilosopherAdmin)
+admin.site.register(Philosophers)

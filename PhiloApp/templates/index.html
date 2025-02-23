@@ -31,31 +31,32 @@
     <section class="philosophers-section">
       <div class="container">
         <h2>فلاسفه</h2>
-        <div class="philosophers-list">
+        <div class="albums-grid">
           {% for philosopher in Philosophers %}
-          <div class="philosopher-card">
-            {% if philosopher.picture %}
-            <img
-              src="{{ philosopher.picture.url }}"
-              alt="{{ philosopher.FullName }}"
-              class="philosopher-image"
-            />
-            {% endif %}
-            <h3>{{ philosopher.FullName }}</h3>
-            {% if philosopher.School %}
-            <p><strong>School:</strong> {{ philosopher.School.Name }}</p>
-            {% endif %}
-            <p><strong>موارد مرتبط:</strong> {{ philosopher.KeyIdeas }}</p>
-            <a href="{% url 'philosopher_detail' philosopher.id %}" class="btn"
-              >ادامه مطلب</a
-            >
+          <div class="album-card">
+            <div class="album-image">
+              {% if philosopher.picture %}
+              <img
+                src="{{ philosopher.picture.url }}"
+                alt="{{ philosopher.FullName }}"
+              />
+              {% endif %}
+            </div>
+            <div class="album-content">
+              <h3>{{ philosopher.FullName }}</h3>
+              {% if philosopher.School %}
+              <p class="school">{{ philosopher.School.Name }}</p>
+              {% endif %}
+              <div class="album-actions">
+                <a
+                  href="{% url 'philosopher_detail' philosopher.id %}"
+                  class="btn"
+                  >ادامه مطلب</a
+                >
+              </div>
+            </div>
           </div>
-
           {% endfor %}
-        </div>
-        <!-- Placeholder for Dynamic Albums -->
-        <div class="albums-placeholder">
-          <p>Dynamic albums for philosophers will be added here.</p>
         </div>
       </div>
     </section>
@@ -63,23 +64,21 @@
     <!-- Schools Section -->
     <section class="schools-section">
       <div class="container">
-        <h2>Schools of Thought</h2>
-        <div class="schools-list">
+        <h2>مکاتب فکری</h2>
+        <div class="albums-grid">
           {% for school in Schools %}
-          <div class="school-card">
-            <h3>{{ school.Name }}</h3>
-            <p>
-              <strong>Concept:</strong> {{ school.Concept|truncatewords:20 }}
-            </p>
-            <a href="{% url 'school_detail' school.id %}" class="btn"
-              >Learn More</a
-            >
+          <div class="album-card">
+            <div class="album-content">
+              <h3>{{ school.Name }}</h3>
+              <p class="concept">{{ school.Concept|truncatewords:20 }}</p>
+              <div class="album-actions">
+                <a href="{% url 'school_detail' school.id %}" class="btn"
+                  >مشاهده مکتب</a
+                >
+              </div>
+            </div>
           </div>
           {% endfor %}
-        </div>
-        <!-- Placeholder for Dynamic Albums -->
-        <div class="albums-placeholder">
-          <p>Dynamic albums for schools will be added here.</p>
         </div>
       </div>
     </section>
@@ -88,11 +87,10 @@
     <footer>
       <div class="container">
         <p>&copy; 2025 Philosophy In Progress. All rights reserved.</p>
-        <p>
-          {% comment %} <a href="#">About</a> | <a href="#">Contact</a> |
-          <a href="#">Privacy Policy</a> {% endcomment %}
-        </p>
       </div>
     </footer>
+    <button id="back-to-top">Back to Top</button>
+
+    <script src="{% static 'js/main.js' %}"></script>
   </body>
 </html>

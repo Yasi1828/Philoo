@@ -211,3 +211,71 @@ footer a:hover {
   border-radius: 5px;
   margin-bottom: 15px;
 }
+/* Albums Grid */
+.albums-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.album-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.album-card:hover {
+  transform: translateY(-5px);
+}
+
+.album-image {
+  height: 250px;
+  overflow: hidden;
+}
+
+.album-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.album-image:hover img {
+  transform: scale(1.1);
+}
+
+.album-content {
+  padding: 1.5rem;
+}
+
+.album-content h3 {
+  color: #0077b6;
+  margin-bottom: 0.5rem;
+}
+
+.school,
+.concept {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.album-actions {
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .albums-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .album-image {
+    height: 200px;
+  }
+}
