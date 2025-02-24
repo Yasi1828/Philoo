@@ -18,3 +18,6 @@ def philosopher_detail(request, philosopher_id):
 def school_detail(request, school_id):
     school = get_object_or_404(Schools, id=school_id)
     return render(request, 'school_detail.html', {'school': school})
+
+
+

@@ -6,8 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Philosophy In Progress</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/Swiper.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   </head>
   <body>
+    <div class="topnav">
+      <a class="active" href="#home">Home</a>
+      <a href="#philosophers">Philosophers</a>
+      <a href="#schools">Schools</a>
+    </div>
     <!-- Header Section -->
     <header>
       <h1>Philosophy In Progress</h1>
@@ -31,32 +42,41 @@
     <section class="philosophers-section">
       <div class="container">
         <h2>فلاسفه</h2>
-        <div class="albums-grid">
-          {% for philosopher in Philosophers %}
-          <div class="album-card">
-            <div class="album-image">
-              {% if philosopher.picture %}
-              <img
-                src="{{ philosopher.picture.url }}"
-                alt="{{ philosopher.FullName }}"
-              />
-              {% endif %}
-            </div>
-            <div class="album-content">
-              <h3>{{ philosopher.FullName }}</h3>
-              {% if philosopher.School %}
-              <p class="school">{{ philosopher.School.Name }}</p>
-              {% endif %}
-              <div class="album-actions">
-                <a
-                  href="{% url 'philosopher_detail' philosopher.id %}"
-                  class="btn"
-                  >ادامه مطلب</a
-                >
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            {% for philosopher in Philosophers %}
+            <div class="swiper-slide">
+              <div class="album-card">
+                <div class="album-image">
+                  {% if philosopher.picture %}
+                  <img
+                    src="{{ philosopher.picture.url }}"
+                    alt="{{ philosopher.FullName }}"
+                  />
+                  {% endif %}
+                </div>
+                <div class="album-content">
+                  <h3>{{ philosopher.FullName }}</h3>
+                  {% if philosopher.School %}
+                  <p class="school">{{ philosopher.School.Name }}</p>
+                  {% endif %}
+                  <div class="album-actions">
+                    <a
+                      href="{% url 'philosopher_detail' philosopher.id %}"
+                      class="btn"
+                      >ادامه مطلب</a
+                    >
+                  </div>
+                </div>
               </div>
             </div>
+            {% endfor %}
           </div>
-          {% endfor %}
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+          <!-- Add Navigation -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
         </div>
       </div>
     </section>
@@ -65,6 +85,10 @@
     <section class="schools-section">
       <div class="container">
         <h2>مکاتب فکری</h2>
+        <div class="navigation-buttons">
+          <button id="prev-school" class="btn">Previous</button>
+          <button id="next-school" class="btn">Next</button>
+        </div>
         <div class="albums-grid">
           {% for school in Schools %}
           <div class="album-card">
@@ -92,5 +116,6 @@
     <button id="back-to-top" class="btn">Back to Top</button>
 
     <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/Swiper.js' %}"></script>
   </body>
 </html>

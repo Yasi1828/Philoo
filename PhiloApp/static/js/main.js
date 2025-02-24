@@ -33,3 +33,57 @@ backToTopBtn.addEventListener("click", () => {
     behavior: "smooth",
   });
 });
+
+// Select all the elements with the class "album-card"
+const albumCardsPhilosophers = document.querySelectorAll(
+  ".philosophers-section .album-card"
+);
+const albumCardsSchools = document.querySelectorAll(
+  ".schools-section .album-card"
+);
+
+let currentIndexPhilosophers = 0;
+let currentIndexSchools = 0;
+
+function updateVisibility() {
+  albumCardsPhilosophers.forEach((card, index) => {
+    card.style.display = index === currentIndexPhilosophers ? "block" : "none";
+  });
+
+  albumCardsSchools.forEach((card, index) => {
+    card.style.display = index === currentIndexSchools ? "block" : "none";
+  });
+}
+
+// Initial visibility
+updateVisibility();
+
+// Navigation for Philosophers
+document.getElementById("prev-philosopher").addEventListener("click", () => {
+  if (currentIndexPhilosophers > 0) {
+    currentIndexPhilosophers--;
+    updateVisibility();
+  }
+});
+
+document.getElementById("next-philosopher").addEventListener("click", () => {
+  if (currentIndexPhilosophers < albumCardsPhilosophers.length - 1) {
+    currentIndexPhilosophers++;
+    updateVisibility();
+  }
+});
+
+// Navigation for Schools
+document.getElementById("prev-school").addEventListener("click", () => {
+  if (currentIndexSchools > 0) {
+    currentIndexSchools--;
+    updateVisibility();
+  }
+});
+
+document.getElementById("next-school").addEventListener("click", () => {
+  if (currentIndexSchools < albumCardsSchools.length - 1) {
+    currentIndexSchools++;
+    updateVisibility();
+  }
+});
