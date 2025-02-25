@@ -23,6 +23,10 @@
   margin-bottom: 1rem;
   border-radius: 50%;
 }
+.swiper-container {
+  position: relative;
+  height: 400px;
+}
 
 .swiper-pagination-bullet {
   background-color: #0077b6;
@@ -30,14 +34,14 @@
 
 .swiper-button-prev,
 .swiper-button-next {
-  color: #e71a1a;
-  bottom: 5;
-  transform: translateY(100%);
+  color: #0077b6;
+  bottom: 20px;
+  position: absolute;
 }
 .swiper-button-prev {
-  left: 20px; /* Move the previous button closer to the cards */
+  left: -20px; /* Move the previous button closer to the cards */
 }
 
 .swiper-button-next {
-  right: 20px; /* Move the next button closer to the cards */
+  right: -20px; /* Move the next button closer to the cards */
 }
