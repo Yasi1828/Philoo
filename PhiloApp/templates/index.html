@@ -14,100 +14,46 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   </head>
   <body>
-    <div class="topnav">
-      <a class="active" href="#home">Home</a>
-      <a href="#philosophers">Philosophers</a>
-      <a href="#schools">Schools</a>
-    </div>
-    <!-- Header Section -->
     <header>
       <h1>Philosophy In Progress</h1>
       <p>Exploring the world of philosophy, one thought at a time.</p>
     </header>
 
-    <!-- Philosophy In Progress Section -->
-    <section class="intro-section">
-      <div class="container">
-        <h2>About Philosophy In Progress</h2>
-        <p>
-          Welcome to Philosophy In Progress, a platform dedicated to exploring
-          the ideas and lives of great philosophers and their schools of
-          thought. Dive into the world of philosophy and discover the wisdom of
-          the ages.
-        </p>
-      </div>
-    </section>
-
     <!-- Philosophers Section -->
     <section class="philosophers-section">
       <div class="container">
         <h2>فلاسفه</h2>
-        <div class="swiper-container">
+        <div class="swiper-container philosophers-slider">
           <div class="swiper-wrapper">
             {% for philosopher in Philosophers %}
-            <div class="swiper-slide">
-              <div class="album-card">
-                <div class="album-image">
-                  {% if philosopher.picture %}
-                  <img
-                    src="{{ philosopher.picture.url }}"
-                    alt="{{ philosopher.FullName }}"
-                  />
-                  {% endif %}
-                </div>
-                <div class="album-content">
-                  <h3>{{ philosopher.FullName }}</h3>
-                  {% if philosopher.School %}
-                  <p class="school">{{ philosopher.School.Name }}</p>
-                  {% endif %}
-                  <div class="album-actions">
-                    <a
-                      href="{% url 'philosopher_detail' philosopher.id %}"
-                      class="btn"
-                      >ادامه مطلب</a
-                    >
-                  </div>
-                </div>
-              </div>
+            <div class="swiper-slide philosopher-card">
+              {% if philosopher.picture %}
+              <img
+                src="{{ philosopher.picture.url }}"
+                alt="{{ philosopher.FullName }}"
+                class="philosopher-image"
+              />
+              {% endif %}
+              <h3>{{ philosopher.FullName }}</h3>
+              {% if philosopher.School %}
+              <p><strong>School:</strong> {{ philosopher.School.Name }}</p>
+              {% endif %}
+              <p><strong>موارد مرتبط:</strong> {{ philosopher.KeyIdeas }}</p>
+              <a
+                href="{% url 'philosopher_detail' philosopher.id %}"
+                class="btn"
+                >ادامه مطلب</a
+              >
             </div>
             {% endfor %}
           </div>
-          <!-- Add Pagination -->
           <div class="swiper-pagination"></div>
-          <!-- Add Navigation -->
-          <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
       </div>
     </section>
 
-    <!-- Schools Section -->
-    <section class="schools-section">
-      <div class="container">
-        <h2>مکاتب فکری</h2>
-        <div class="navigation-buttons">
-          <button id="prev-school" class="btn">Previous</button>
-          <button id="next-school" class="btn">Next</button>
-        </div>
-        <div class="albums-grid">
-          {% for school in Schools %}
-          <div class="album-card">
-            <div class="album-content">
-              <h3>{{ school.Name }}</h3>
-              <p class="concept">{{ school.Concept|truncatewords:20 }}</p>
-              <div class="album-actions">
-                <a href="{% url 'school_detail' school.id %}" class="btn"
-                  >مشاهده مکتب</a
-                >
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer Section -->
     <footer>
       <div class="container">
         <p>&copy; 2025 Philosophy In Progress. All rights reserved.</p>

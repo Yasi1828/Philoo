@@ -1,33 +1,43 @@
-.swiper-container {
-  position: relative;
+.philosophers-slider {
+  width: 100%;
+  height: 400px;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  background-color: transparent;
-  border-radius: 50%;
+.philosopher-card {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  justify-content: center;
+  text-align: center;
+  background-color: #fffaf0; /* Light blue background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  margin: 0 auto;
 }
 
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-  /* background-color: rgba(255, 255, 255, 0.9); */
-  color: #78b2ec;
+.philosopher-image {
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+}
+
+.swiper-pagination-bullet {
+  background-color: #0077b6;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #e71a1a;
+  bottom: 5;
+  transform: translateY(100%);
+}
+.swiper-button-prev {
+  left: 20px; /* Move the previous button closer to the cards */
 }
 
 .swiper-button-next {
-  right: 20px;
-}
-
-.swiper-button-prev {
-  left: 20px;
+  right: 20px; /* Move the next button closer to the cards */
 }
