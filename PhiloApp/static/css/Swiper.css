@@ -1,6 +1,7 @@
 .philosophers-slider {
   width: 100%;
   height: 400px;
+  position: relative;
 }
 .swiper-slide {
   display: flex;
@@ -18,6 +19,7 @@
   padding: 38px;
   border-radius: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 80%;
   max-width: 300px;
   /* margin: 0 auto; */
 }
@@ -30,17 +32,22 @@
 }
 .swiper-container {
   position: relative;
-  height: 400px;
+  /* height: 400px; */
+  height: 100%;
 }
 
 .swiper-pagination-bullet {
   background-color: #0077b6;
 }
+.swiper-pagination {
+  bottom: 0;
+  position: absolute;
+}
 
 .swiper-button-prev,
 .swiper-button-next {
-  color: #e8dd04;
-  bottom: 20px;
+  color: #e70d0d;
+  bottom: 0;
   position: absolute;
 }
 .swiper-button-prev {
