@@ -2,6 +2,11 @@
   width: 100%;
   height: 400px;
 }
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .philosopher-card {
   display: flex;
@@ -10,11 +15,11 @@
   justify-content: center;
   text-align: center;
   background-color: #fffaf0; /* Light blue background */
-  padding: 20px;
-  border-radius: 10px;
+  padding: 38px;
+  border-radius: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   max-width: 300px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 .philosopher-image {
@@ -34,16 +39,16 @@
 
 .swiper-button-prev,
 .swiper-button-next {
-  color: #0077b6;
+  color: #e8dd04;
   bottom: 20px;
   position: absolute;
 }
 .swiper-button-prev {
-  left: -20px;
+  left: -50px;
 }
 
 .swiper-button-next {
-  right: -20px;
+  right: -50px;
 }
 
 .swiper-container
