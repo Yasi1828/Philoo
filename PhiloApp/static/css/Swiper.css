@@ -39,9 +39,17 @@
   position: absolute;
 }
 .swiper-button-prev {
-  left: -20px; /* Move the previous button closer to the cards */
+  left: -20px;
 }
 
 .swiper-button-next {
-  right: -20px; /* Move the next button closer to the cards */
+  right: -20px;
+}
+
+.swiper-container
+  .swiper-slide:not(.swiper-slide-active):not(.swiper-slide-next):not(
+    .swiper-slide-prev
+  ) {
+  opacity: 0;
+  visibility: hidden;
 }
