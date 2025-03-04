@@ -22,6 +22,7 @@
   width: 80%;
   max-width: 300px;
   /* margin: 0 auto; */
+  /* height: 320px; */
 }
 
 .philosopher-image {
@@ -30,6 +31,7 @@
   margin-bottom: 1rem;
   border-radius: 50%;
 }
+
 .swiper-container {
   position: relative;
   /* height: 400px; */
@@ -46,7 +48,7 @@
 
 .swiper-button-prev,
 .swiper-button-next {
-  color: #e70d0d;
+  color: #15e726;
   bottom: 0;
   position: absolute;
 }
