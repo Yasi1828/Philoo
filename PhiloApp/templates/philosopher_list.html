@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Philosophers - Philosophy In Progress</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
+    <header>
+      <h1>Philosophers</h1>
+      <p>Explore the lives and ideas of great philosophers.</p>
+    </header>
+
+    <main>
+      <section class="philosophers-section">
+        <div class="container">
+          {% for philosopher in Philosophers %}
+          <div class="philosopher-card">
+            {% if philosopher.picture %}
+            <img
+              src="{{ philosopher.picture.url }}"
+              alt="{{ philosopher.FullName }}"
+              class="philosopher-image"
+            />
+            {% endif %}
+            <h2>{{ philosopher.FullName }}</h2>
+            {% if philosopher.School %}
+            <p><strong>School:</strong> {{ philosopher.School.Name }}</p>
+            {% endif %}
+            <p><strong>Key Ideas:</strong> {{ philosopher.KeyIdeas }}</p>
+            <a href="{% url 'philosopher_detail' philosopher.id %}" class="btn"
+              >Learn More</a
+            >
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Philosophy In Progress. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
