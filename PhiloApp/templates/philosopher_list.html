@@ -15,16 +15,13 @@
   <body>
     <header>
       <h1>Philosophers</h1>
-      {% comment %}
-      <p>Explore the lives and ideas of great philosophers.</p>
-      {% endcomment %}
     </header>
 
     <main>
       <section class="philosophers-section">
-        <div class="container">
+        <div class="grid-container">
           {% for philosopher in Philosophers %}
-          <div class="philosopher-card">
+          <div class="grid-item">
             {% if philosopher.picture %}
             <img
               src="{{ philosopher.picture.url }}"
@@ -42,6 +39,15 @@
             >
           </div>
           {% endfor %}
+        </div>
+
+        <!-- Pagination Section -->
+        <div class="pagination">
+          <span class="page-btn">1</span>
+          <span class="page-btn">2</span>
+          <span class="page-btn">3</span>
+          <span class="page-btn">...</span>
+          <span class="page-btn">Next</span>
         </div>
       </section>
     </main>
