@@ -203,6 +203,7 @@ footer a:hover {
   overflow: hidden;
   position: sticky;
   top: 0;
+  z-index: 100;
 }
 .topnav a {
   float: left;
@@ -228,6 +229,8 @@ footer a:hover {
   display: flex;
   justify-content: center; /* Center the pagination */
   margin-top: 20px; /* Space above pagination */
+  max-width: 1900px;
+  margin-left: 30px;
 }
 
 .page-btn {
@@ -257,6 +260,7 @@ footer a:hover {
   padding: 20px; /* Padding around the grid */
   justify-content: center; /* Center the grid items */
   max-width: 1900px;
+  margin-left: 30px;
 }
 
 .grid-item {
