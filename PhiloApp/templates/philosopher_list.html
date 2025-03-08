@@ -20,7 +20,7 @@
     <main>
       <section class="philosophers-section">
         <div class="grid-container">
-          {% for philosopher in Philosophers %}
+          {% for philosopher in page_obj %}
           <div class="grid-item">
             {% if philosopher.picture %}
             <img
@@ -42,13 +42,27 @@
         </div>
 
         <!-- Pagination Section -->
+        {% comment %}
         <div class="pagination">
-          <span class="page-btn">1</span>
-          <span class="page-btn">2</span>
-          <span class="page-btn">3</span>
-          <span class="page-btn">...</span>
-          <span class="page-btn">Next</span>
+          {% if page_obj.has_previous %}
+          <a href="?page=1" class="page-btn">&laquo; First</a>
+          <a href="?page={{ page_obj.previous_page_number }}" class="page-btn"
+            >Previous</a
+          >
+          {% endif %}
+
+          <span class="page-btn active">{{ page_obj.number }}</span>
+
+          {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}" class="page-btn"
+            >Next</a
+          >
+          <a href="?page={{ page_obj.paginator.num_pages }}" class="page-btn"
+            >Last &raquo;</a
+          >
+          {% endif %}
         </div>
+        {% endcomment %}
       </section>
     </main>
 

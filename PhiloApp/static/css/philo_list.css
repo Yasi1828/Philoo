@@ -79,8 +79,8 @@ header h1 {
 .btn {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #58a7f1;
-  color: #ffffff;
+  background-color: #58a7f1; /* Light blue background */
+  color: #ffffff; /* White text */
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -114,12 +114,7 @@ header h1 {
 
 /* Philosophers and Schools Sections */
 .philosophers-section {
-  padding: 40px 0;
-
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: auto;
-  grid-gap: 15px;
+  padding: 20px;
 }
 
 .philosophers-section h2 {
@@ -256,23 +251,60 @@ footer a:hover {
 }
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-auto-flow: column;
-  grid-gap: 20px;
-  justify-content: center;
+  grid-template-columns: repeat(5, 1fr); /* 5 columns */
+  grid-template-rows: repeat(5, auto); /* 5 rows */
+  gap: 10px; /* Space between grid items */
+  padding: 20px; /* Padding around the grid */
+  justify-content: center; /* Center the grid items */
+  max-width: 1900px;
 }
 
 .grid-item {
-  background-color: #f2f2f2;
-  padding: 20px;
-  text-align: center;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* White background for cards */
+  border: 1px solid #ddd; /* Light grey border */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px; /* Padding inside the card */
+  text-align: center; /* Center-align text */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 88%;
+  height: 550px;
+}
+.grid-item:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+.grid-item h2 {
+  font-size: 1.2rem; /* Smaller heading */
+  margin: 10px 0; /* Adjust spacing */
+}
+
+.grid-item p {
+  font-size: 0.9rem; /* Smaller text */
+  margin: 5px 0; /* Adjust spacing */
 }
 
 .philosopher-image {
-  max-width: 100%;
-  height: auto;
-  border-radius: 50%;
-  margin-bottom: 10px;
+  max-width: 100%; /* Ensure the image fits within the card */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 50%; /* Circular image */
+  margin-bottom: 15px; /* Space below the image */
+}
+
+@media (max-width: 1200px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* 1 column for very small screens */
+  }
 }
