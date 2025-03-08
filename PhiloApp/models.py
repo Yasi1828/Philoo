@@ -9,7 +9,7 @@ class Hashtag(models.Model):
         return self.name
 class Philosophers(models.Model):
     FullName = models.CharField(max_length = 100)
-    BirthDate = models.TextField()
+    BirthDate = models.DateField()
     Bio = models.TextField()
     # KeyIdeas = models.TextField()
     hashtags= models.ManyToManyField(Hashtag,blank=True)
