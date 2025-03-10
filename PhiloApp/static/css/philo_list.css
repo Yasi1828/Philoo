@@ -6,10 +6,11 @@ body {
   margin: 0;
   padding: 0;
   text-align: center; /* Center-align all text */
+  font-size: 16px;
 }
 
 .container {
-  max-width: 1000%;
+  max-width: 100%;
   margin: 0 auto;
   padding: 20px;
 }
@@ -17,12 +18,14 @@ body {
 h1 {
   color: #e9edf0; /* Dark blue for headings */
   text-align: center; /* Center-align headings */
+  font-size: 2.5rem;
 }
 
 h2,
 h3 {
   color: #0077b6; /* Dark blue for headings */
   text-align: center; /* Center-align headings */
+  font-size: 1.5rem;
 }
 
 a {
@@ -40,7 +43,7 @@ header {
   background-image: url("images/back3.jpg");
   background-size: cover;
   background-position: center;
-  height: 400px;
+  height: 40vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,7 +81,7 @@ header h1 {
 /* Button Styles */
 .btn {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 0.8em;
   background-color: #58a7f1; /* Light blue background */
   color: #ffffff; /* White text */
   border: none;
@@ -86,6 +89,10 @@ header h1 {
   cursor: pointer;
   transition: background-color 0.3s ease;
   font-weight: bold;
+  font-size: 0.8rem;
+  max-width: 80%;
+  margin-top: 1em;
+  margin-bottom: 0em;
 }
 
 .btn:hover {
@@ -108,7 +115,7 @@ header h1 {
 .intro-section p {
   font-size: 1.1rem;
   color: #333; /* Dark grey text */
-  max-width: 800px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -146,47 +153,6 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
-}
-
-/* Philosopher and School Cards */
-.philosopher-card {
-  background-color: #fff; /* White background */
-  border: 1px solid #ddd; /* Light grey border */
-  border-radius: 5px; /* Rounded corners */
-  padding: 20px;
-
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  /* width: 250px; */
-  /* width: 14%;
-  margin-right: 2.5%;
-  margin-bottom: 20px;
-  display: inline-block;
-  vertical-align: top; */
-  /* flex: 0 0 calc(20% - 20px); */
-}
-/* .philosopher-card:nth-child(5n) {
-  margin-right: 0;
-} */
-
-.philosopher-card:hover {
-  transform: translateY(-5px); /* Slight lift on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow on hover */
-}
-
-.philosopher-card h3 {
-  color: #0077b6; /* Dark blue heading */
-  margin-bottom: 10px;
-}
-
-.philosopher-card p {
-  color: #333; /* Dark grey text */
-  margin-bottom: 15px;
-}
-
-.philosopher-card .btn {
-  margin-top: 10px;
 }
 /* Philosopher and School Images */
 .philosopher-image,
@@ -229,7 +195,7 @@ footer a:hover {
   display: flex;
   justify-content: center; /* Center the pagination */
   margin-top: 20px; /* Space above pagination */
-  max-width: 1900px;
+  max-width: 100%;
   margin-left: 30px;
 }
 
@@ -256,59 +222,92 @@ footer a:hover {
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* 5 columns */
   grid-template-rows: repeat(5, auto); /* 5 rows */
-  gap: 10px; /* Space between grid items */
-  padding: 20px; /* Padding around the grid */
+  gap: 0.5em; /* Space between grid items */
+  padding: 2em; /* Padding around the grid */
   justify-content: center; /* Center the grid items */
-  max-width: 1900px;
-  margin-left: 30px;
+  /* max-width: 1900px; */
+  width: 100%;
+  /* margin-left: 30px; */
+  overflow: auto;
 }
 
 .grid-item {
-  background-color: #fff; /* White background for cards */
-  border: 1px solid #ddd; /* Light grey border */
-  border-radius: 10px; /* Rounded corners */
-  padding: 20px; /* Padding inside the card */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center; /* Center-align text */
+  background-color: #fff; /* White background for cards */
+  padding: 1em;
+  border: 1px solid #ddd; /* Light grey border */
+  border-radius: 20px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 88%;
-  height: 550px;
+  width: 80%;
+  max-width: 300px;
+  /* height: 90%; */
 }
+
 .grid-item:hover {
   transform: translateY(-5px); /* Slight lift on hover */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
 }
 .grid-item h2 {
-  font-size: 1.2rem; /* Smaller heading */
-  margin: 10px 0; /* Adjust spacing */
+  font-size: 0.9rem; /* Relative font size */
+  margin: 0.5em 0; /* Relative margin */
+  line-height: 1.2; /* Relative line height */
 }
 
 .grid-item p {
-  font-size: 0.9rem; /* Smaller text */
-  margin: 5px 0; /* Adjust spacing */
+  font-size: 0.9rem; /* Relative font size */
+  margin: 0.5em 0; /* Relative margin */
+  line-height: 1.4; /* Relative line height */
 }
 
 .philosopher-image {
-  max-width: 100%; /* Ensure the image fits within the card */
+  max-width: 90%; /* Ensure the image fits within the card */
   height: 75%; /* Maintain aspect ratio */
-  border-radius: 50%; /* Circular image */
-  margin-bottom: 15px; /* Space below the image */
+  border-radius: 50%;
+  margin-bottom: 1em; /* Relative margin */
+}
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #d8d9db; /* Light grey background */
+  padding: 2em; /* Padding inside the filter section */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  height: fit-content; /* Adjust height to fit content */
+  margin-top: 2em;
+  margin-left: 2em;
+  overflow: auto;
+}
+.main-content {
+  display: grid;
+  grid-template-columns: 3fr 1fr; /* 3:1 ratio for grid-container and filter-section */
+  gap: 20px; /* Space between grid-container and filter-section */
+  padding: 20px; /* Padding around the main content */
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 100%) {
   .grid-container {
     grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 100%) {
   .grid-container {
     grid-template-columns: repeat(2, 1fr); /* 2 columns for small screens */
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 100%) {
   .grid-container {
     grid-template-columns: 1fr; /* 1 column for very small screens */
+  }
+  .main-content {
+    grid-template-columns: 1fr; /* Stack filter-section below grid-container on small screens */
   }
 }
