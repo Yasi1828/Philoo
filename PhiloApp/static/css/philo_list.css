@@ -43,7 +43,7 @@ header {
   background-image: url("images/back3.jpg");
   background-size: cover;
   background-position: center;
-  height: 40vh;
+  height: 30vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -177,7 +177,7 @@ footer a:hover {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 /* Change the color of links on hover */
 .topnav a:hover {
@@ -221,9 +221,9 @@ footer a:hover {
 .grid-container {
   display: flex;
   flex-wrap: wrap; /* Allow items to wrap */
-  gap: 1em; /* Consistent spacing between items */
+  gap: 1.111em; /* Consistent spacing between items */
   justify-content: center; /* Center items horizontally */
-  flex: 5; /* Take up 3 parts of the available space */
+  flex: 3; /* Take up 3 parts of the available space */
 }
 
 .grid-item {
@@ -239,7 +239,7 @@ footer a:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: calc(33.333% - 1em);
-  max-width: 300px;
+  max-width: 250px;
   /* height: 90%; */
 }
 
@@ -260,8 +260,8 @@ footer a:hover {
 }
 
 .philosopher-image {
-  max-width: 90%; /* Ensure the image fits within the card */
-  height: 75%; /* Maintain aspect ratio */
+  max-width: 80%; /* Ensure the image fits within the card */
+  height: 70%; /* Maintain aspect ratio */
   border-radius: 50%;
   margin-bottom: 1em; /* Relative margin */
 }
