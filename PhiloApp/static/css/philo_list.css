@@ -6,13 +6,13 @@ body {
   margin: 0;
   padding: 0;
   text-align: center; /* Center-align all text */
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .container {
   max-width: 100%;
   margin: 0 auto;
-  padding: 20px;
+  padding: 1.25rem;
 }
 
 h1 {
@@ -48,7 +48,7 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px 0;
+  padding: 1.25rem 0;
   text-align: center;
 }
 
@@ -121,7 +121,7 @@ header h1 {
 
 /* Philosophers and Schools Sections */
 .philosophers-section {
-  padding: 20px;
+  padding: 1.25rem;
 }
 
 .philosophers-section h2 {
@@ -177,7 +177,7 @@ footer a:hover {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 19px;
+  font-size: 1.5rem;
 }
 /* Change the color of links on hover */
 .topnav a:hover {
@@ -194,15 +194,15 @@ footer a:hover {
 .pagination {
   display: flex;
   justify-content: center; /* Center the pagination */
-  margin-top: 20px; /* Space above pagination */
+  margin-top: 1.25rem; /* Space above pagination */
   max-width: 100%;
-  margin-left: 30px;
+  margin-left: 1.875rem;
 }
 
 .page-btn {
   display: inline-block;
-  padding: 10px 15px;
-  margin: 0 5px;
+  padding: 0.625rem 0.9375rem; /* 10px 15px */
+  margin: 0 0.3125rem;
   background-color: #0077b6; /* Dark blue background */
   color: #ffffff; /* White text */
   border-radius: 5px;
@@ -219,16 +219,11 @@ footer a:hover {
   background-color: #58a7f1; /* Lighter blue for active page */
 }
 .grid-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 columns */
-  grid-template-rows: repeat(5, auto); /* 5 rows */
-  gap: 0.5em; /* Space between grid items */
-  padding: 2em; /* Padding around the grid */
-  justify-content: center; /* Center the grid items */
-  /* max-width: 1900px; */
-  width: 100%;
-  /* margin-left: 30px; */
-  overflow: auto;
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap */
+  gap: 1em; /* Consistent spacing between items */
+  justify-content: center; /* Center items horizontally */
+  flex: 5; /* Take up 3 parts of the available space */
 }
 
 .grid-item {
@@ -243,7 +238,7 @@ footer a:hover {
   border-radius: 20px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 80%;
+  width: calc(33.333% - 1em);
   max-width: 300px;
   /* height: 90%; */
 }
@@ -276,19 +271,20 @@ footer a:hover {
   align-items: center;
   justify-content: center;
   background-color: #d8d9db; /* Light grey background */
-  padding: 2em; /* Padding inside the filter section */
+  padding: 1.25em; /* Padding inside the filter section */
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   height: fit-content; /* Adjust height to fit content */
-  margin-top: 2em;
-  margin-left: 2em;
+  margin-top: 1.25em;
+  margin-left: 1.25em;
   overflow: auto;
+  flex: 1;
 }
 .main-content {
-  display: grid;
-  grid-template-columns: 3fr 1fr; /* 3:1 ratio for grid-container and filter-section */
-  gap: 20px; /* Space between grid-container and filter-section */
-  padding: 20px; /* Padding around the main content */
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  gap: 1em; /* Consistent spacing between items */
+  justify-content: center; /* Center items horizontally */
 }
 
 @media (max-width: 100%) {
@@ -296,18 +292,35 @@ footer a:hover {
     grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
   }
 }
-
+/* 
 @media (max-width: 100%) {
   .grid-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for small screens */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 100%) {
   .grid-container {
-    grid-template-columns: 1fr; /* 1 column for very small screens */
+    grid-template-columns: 1fr;
   }
   .main-content {
-    grid-template-columns: 1fr; /* Stack filter-section below grid-container on small screens */
+    grid-template-columns: 1fr;
+  }
+} */
+@media (max-width: 768px) {
+  .grid-item {
+    width: calc(50% - 1em); /* 2 items per row on medium screens */
+  }
+}
+@media (max-width: 480px) {
+  .grid-item {
+    width: 100%; /* 1 item per row on small screens */
+  }
+  .main-content {
+    flex-direction: column; /* Stack filter-section below grid-container */
+  }
+  .filter-section {
+    margin-left: 0; /* Remove left margin on small screens */
+    margin-top: 1.25rem; /* 20px */
   }
 }
