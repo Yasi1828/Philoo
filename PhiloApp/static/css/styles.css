@@ -78,14 +78,18 @@ header h1 {
 /* Button Styles */
 .btn {
   display: inline-block;
-  padding: 10px 20px;
-  background-color: #58a7f1;
-  color: #ffffff;
+  padding: 0.8em;
+  background-color: #58a7f1; /* Light blue background */
+  color: #ffffff; /* White text */
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   font-weight: bold;
+  font-size: 0.8rem;
+  max-width: 80%;
+  margin-top: 1em;
+  margin-bottom: 0em;
 }
 
 .btn:hover {
@@ -132,15 +136,6 @@ header h1 {
   margin-bottom: 20px;
 }
 
-.albums-placeholder {
-  background-color: #f0f8ff; /* Light blue background */
-  padding: 20px;
-  border-radius: 5px;
-  text-align: center;
-  margin-top: 20px;
-  color: #0077b6; /* Dark blue text */
-}
-
 /* Footer Section */
 footer {
   background-color: #0077b6; /* Dark blue footer */
@@ -159,105 +154,31 @@ footer a:hover {
   text-decoration: underline;
 }
 
-.albums-placeholder {
-  background-color: #ccd0cd;
-  color: #0077b6; /* White text */
-  text-align: center;
-  padding: 40px;
-  margin-top: 40px;
-  border-radius: 5px; /* Rounded corners */
+.philosophers-slider {
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Philosopher and School Cards */
-.philosopher-card,
-.school-card {
-  background-color: #fff; /* White background */
-  border: 1px solid #ddd; /* Light grey border */
-  border-radius: 5px; /* Rounded corners */
-  padding: 20px;
-  margin-bottom: 20px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding-top: 20px;
+  padding-bottom: 40px;
 }
 
 .philosopher-card:hover,
 .school-card:hover {
-  transform: translateY(-5px); /* Slight lift on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow on hover */
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .philosopher-card h3,
 .school-card h3 {
-  color: #0077b6; /* Dark blue heading */
-  margin-bottom: 10px;
+  font-size: 1.2rem;
+  margin: 0.5em 0;
+  line-height: 1.2;
 }
 
 .philosopher-card p,
 .school-card p {
-  color: #333; /* Dark grey text */
-  margin-bottom: 15px;
-}
-
-.philosopher-card .btn,
-.school-card .btn {
-  margin-top: 10px;
-}
-/* Philosopher and School Images */
-.philosopher-image,
-.detail-image {
-  max-width: 100%;
-  height: 75%;
-  border-radius: 5px;
-  margin-bottom: 15px;
-}
-/* Albums Grid */
-.albums-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  padding: 2rem 0;
-}
-
-.album-card {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  width: 250px;
-  height: auto;
-}
-
-.album-card:hover {
-  transform: translateY(-5px);
-}
-
-.album-image {
-  height: 250px;
-  overflow: hidden;
-}
-
-.album-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.album-image:hover img {
-  transform: scale(1.1);
-}
-
-.album-content {
-  padding: 1.5rem;
-}
-
-.album-content h3 {
-  color: #0077b6;
-  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 0.9rem;
+  margin: 0.5em 0;
+  line-height: 1.4;
 }
 
 .school,
@@ -267,17 +188,12 @@ footer a:hover {
   margin-bottom: 1rem;
 }
 
-.album-actions {
-  border-top: 1px solid #eee;
-  padding-top: 1rem;
-  text-align: center;
-}
-
 .topnav {
   background-color: #222d4b;
   overflow: hidden;
   position: sticky;
   top: 0;
+  z-index: 100;
 }
 .topnav a {
   float: left;
@@ -297,4 +213,75 @@ footer a:hover {
 .topnav a.active {
   background-color: #426c90;
   color: white;
+}
+
+/* swiper */
+.philosophers-slider {
+  width: 100%;
+  height: 400px;
+  position: relative;
+}
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.philosopher-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #fffaf0; /* Light blue background */
+  padding: 38px;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 300px;
+  /* margin: 0 auto; */
+  /* height: 320px; */
+}
+
+.philosopher-image {
+  max-width: 200px;
+  height: 250px;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+}
+
+.swiper-container {
+  position: relative;
+  /* height: 400px; */
+  height: 100%;
+}
+
+.swiper-pagination-bullet {
+  background-color: #0077b6;
+}
+.swiper-pagination {
+  bottom: 0;
+  position: absolute;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #15e726;
+  bottom: 0;
+  position: absolute;
+}
+.swiper-button-prev {
+  left: -50px;
+}
+
+.swiper-button-next {
+  right: -50px;
+}
+
+.swiper-container
+  .swiper-slide:not(.swiper-slide-active):not(.swiper-slide-next):not(
+    .swiper-slide-prev
+  ) {
+  opacity: 0;
+  visibility: hidden;
 }
