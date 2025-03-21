@@ -1,5 +1,5 @@
 from django.shortcuts import render,get_object_or_404
-from .models import Philosophers, Schools
+from .models import Philosophers, Schools, Hashtag
 from django.core.paginator import Paginator
 
 # Create your views here.
@@ -26,13 +26,22 @@ def school_list(request):
     return render(request, 'school_list.html', context=context)
 
 def philosopher_list(request):
-    philosophers = Philosophers.objects.all()
+    hashtags = Hashtag.objects.all()
+    selected_hashtag = request.GET.get('hashtag')
+    if selected_hashtag:
+        philosophers = Philosophers.objects.filter(hashtags__name = selected_hashtag)
+    else:
+        philosophers = Philosophers.objects.all()
+        
     paginator = Paginator(philosophers, 25)  # Show 25 philosophers per page
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    # context = {'Philosophers' : philosophers}
-    # return render(request, 'philosopher_list.html', context=context)
-    return render(request, 'philosopher_list.html', {'page_obj': page_obj})
+    context = {
+        'page_obj': page_obj,
+        'hashtags': hashtags,
+        'selected_hashtag': selected_hashtag,
+    }
+    return render(request, 'philosopher_list.html', context=context)
 
 
 
