@@ -33,13 +33,7 @@
               <h2>{{ philosopher.FullName }}</h2>
               {% if philosopher.School %}
               <p><strong>School:</strong> {{ philosopher.School.Name }}</p>
-              {% endif %} {% comment %}
-              <p>
-                <strong>Hashtags:</strong>
-                {% for hashtag in philosopher.hashtags.all %} {{ hashtag.name }}
-                {% endfor %}
-              </p>
-              {% endcomment %}
+              {% endif %}
               <a
                 href="{% url 'philosopher_detail' philosopher.id %}"
                 class="btn"
@@ -49,9 +43,31 @@
             {% endfor %}
           </div>
           <div class="filter-section">
-            <!-- Add your filter content here -->
             <h3>Filters</h3>
-            <p>Filter options go here...</p>
+            <!-- Search Input -->
+            <input
+              type="text"
+              id="hashtag-search"
+              placeholder="Search hashtags..."
+              class="search-input"
+            />
+
+            <!-- Scrollable Hashtag List -->
+            <div class="hashtag-list">
+              <ul>
+                <li><a href="?">All</a></li>
+                {% for hashtag in hashtags %}
+                <li>
+                  <a
+                    href="?hashtag={{ hashtag.name }}"
+                    class="{% if selected_hashtag == hashtag.name %}active{% endif %}"
+                  >
+                    {{ hashtag.name }}
+                  </a>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
           </div>
         </div>
 

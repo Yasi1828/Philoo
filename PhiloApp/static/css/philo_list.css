@@ -315,3 +315,28 @@ footer a:hover {
     margin-top: 1.25rem; /* 20px */
   }
 }
+/* filter */
+
+/* Add these styles to your CSS file */
+.filter-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.filter-section ul li {
+  margin: 0.5em 0;
+}
+
+.filter-section ul li a {
+  text-decoration: none;
+  color: #0077b6; /* Dark blue for links */
+}
+
+.filter-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.filter-section ul li a.active {
+  font-weight: bold;
+  color: #005f8c; /* Darker blue for active link */
+}
