@@ -4,7 +4,7 @@ from django.core.paginator import Paginator
 
 # Create your views here.
 def index(request):
-    Philosophers_content = Philosophers.objects.all()
+    Philosophers_content = Philosophers.objects.all().order_by('-id')[:8]
     Schools_content = Schools.objects.all()
     
     context = {'Philosophers' : Philosophers_content,
