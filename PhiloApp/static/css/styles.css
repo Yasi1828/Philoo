@@ -1,8 +1,8 @@
 /* General Styles */
 body {
-  font-family: "Arial", sans-serif;
-  background-color: #f0f8ff;
-  color: #333;
+  font-family: "Georgia", serif;
+  background-color: #e2dad6; /* Warm beige background */
+  color: #f5eded;
   margin: 0;
   padding: 0;
   text-align: center;
@@ -15,23 +15,23 @@ body {
 }
 
 h1 {
-  color: #e9edf0; /* Dark blue for headings */
+  color: #4a5d7e; /* Dark blue for headings */
   text-align: center; /* Center-align headings */
 }
 
 h2,
 h3 {
-  color: #0077b6; /* Dark blue for headings */
+  color: #4a5d7e; /* Dark blue for headings */
   text-align: center; /* Center-align headings */
 }
 
 a {
-  color: #00b4d8; /* Light blue for links */
+  color: #4a5d7e; /* Light blue for links */
   text-decoration: none;
 }
 
 a:hover {
-  color: #0077b6; /* Darker blue on hover */
+  color: #4a5d7e; /* Darker blue on hover */
   text-decoration: underline;
 }
 
@@ -40,6 +40,7 @@ header {
   background-image: url("images/back3.jpg");
   background-size: cover;
   background-position: center;
+  border-bottom: 1px solid #eadcd6;
   height: 400px;
   display: flex;
   flex-direction: column;
@@ -52,28 +53,30 @@ header {
 header h1 {
   margin: 0;
   font-size: 2.5rem;
+  color: #dfd1d1;
 }
 
 /* Button Styles */
 .btn {
   display: inline-block;
   padding: 0.8em;
-  background-color: #58a7f1; /* Light blue background */
-  color: #ffffff; /* White text */
+  background-color: #8a9ea9;
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  font-weight: bold;
-  font-size: 0.8rem;
+
+  font-size: 0.7rem;
   max-width: 80%;
   margin-top: 1em;
   margin-bottom: 0em;
 }
 
 .btn:hover {
-  background-color: #0077b6;
-  color: #fff;
+  background-color: #6b8c9e;
+  text-decoration: underline;
+  color: white;
 }
 
 /* Intro Section */
@@ -90,7 +93,7 @@ header h1 {
 
 .intro-section p {
   font-size: 1.1rem;
-  color: #333; /* Dark grey text */
+  color: #4a5d7e; /* Dark grey text */
   max-width: 800px;
   margin: 0 auto;
 }
@@ -101,49 +104,52 @@ header h1 {
   width: 100%;
   padding: 40px 0;
   text-align: center;
+  background-color: #e2dad6;
 }
 
 .philosophers-section h2,
 .schools-section h2 {
-  color: #102c8ed3; /* Dark blue heading */
+  color: #4a5d7e;
   margin-bottom: 20px;
 }
 
 .philosophers-section p,
 .schools-section p {
   font-size: 1.1rem;
-  color: #333; /* Dark grey text */
+  color: #4a5d7e; /* Dark grey text */
   margin-bottom: 20px;
 }
 
 /* Footer Section */
 footer {
-  background-color: #0077b6;
-  color: #fff;
+  background-color: #6482ad;
+  color: #f5eded;
   text-align: center;
   padding: 20px 0;
   margin-top: 40px;
 }
 
 footer a {
-  color: #00b4d8;
-  text-decoration: none;
+  color: #f5dada;
+  text-decoration: underline;
 }
 
 footer a:hover {
   text-decoration: underline;
+  color: #f6cbcb;
 }
 
 .school,
 .concept {
-  color: #666;
+  color: #4a5d7e;
   font-size: 0.9rem;
   margin-bottom: 1rem;
 }
 
 /* Top Nav */
 .topnav {
-  background-color: #222d4b;
+  background-color: #6482ad;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   position: sticky;
   top: 0;
@@ -151,7 +157,7 @@ footer a:hover {
 }
 .topnav a {
   float: left;
-  color: #f2f2f2;
+  color: #f5eded;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -159,23 +165,22 @@ footer a:hover {
 }
 
 .topnav a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: #35697a;
 }
 
 .topnav a.active {
   background-color: #426c90;
-  color: white;
+  color: #f5eded;
 }
 
 /* swiper */
 .philosophers-slider {
   width: 100%;
-  height: 400px;
+  height: auto;
+  min-height: 500px;
   position: relative;
-  overflow: hidden;
   margin: 0 auto;
-  padding-bottom: 7rem;
+  padding: 10px 0 0;
 }
 .swiper-slide-active {
   transform: translateX(0) !important;
@@ -195,14 +200,20 @@ footer a:hover {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: #fffaf0;
-  padding: 38px;
+  background: #eee9e7;
+  padding: 10px;
   border-radius: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #eadcd6;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   width: 80%;
-  max-width: 300px;
-  transform: translate3d(0, 0, 0);
+  max-width: 250px;
   height: 100%;
+  max-height: 400px;
+  transform: scale(1); /* Initial state */
+  transform-origin: center; /* Zoom from center */
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.4s ease; /* Smooth zoom + shadow */
+  will-change: transform;
 }
 
 .philosopher-image {
@@ -213,21 +224,22 @@ footer a:hover {
 }
 .philosopher-card:hover,
 .school-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.08); /* 8% zoom (adjust as needed) */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* More pronounced shadow */
+  z-index: 20;
 }
-
 .philosopher-card h3,
 .school-card h3 {
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   margin: 0.5em 0;
   line-height: 1.2;
+  color: #6482ad;
 }
 
 .philosopher-card p,
 .school-card p {
-  color: #333;
-  font-size: 0.9rem;
+  color: #4a5d7e;
+  font-size: 0.4rem;
   margin: 0.5em 0;
   line-height: 1.4;
 }
@@ -245,10 +257,9 @@ footer a:hover {
 
 .swiper-button-prev,
 .swiper-button-next {
-  color: #15e726;
+  color: #4a5d7e !important;
   width: 40px;
   height: 40px;
-  background: rgba(255, 255, 255, 0.8);
   border-radius: 50%;
   display: flex;
 
@@ -273,6 +284,9 @@ footer a:hover {
   transform: translateX(-15%) !important;
   opacity: 0.7 !important;
 }
+.swiper-pagination-bullet-active {
+  background: #6482ad !important;
+}
 
 .swiper-container
   .swiper-slide:not(.swiper-slide-active):not(.swiper-slide-next):not(
@@ -280,4 +294,20 @@ footer a:hover {
   ) {
   opacity: 0;
   visibility: hidden;
+}
+
+#back-to-top {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: #4b6181; /* Teal-blue */
+  color: #f5eded;
+  border: none;
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: none; /* Hidden by default */
 }

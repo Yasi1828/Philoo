@@ -30,38 +30,42 @@
     <section class="philosophers-section">
       <div class="container">
         <h2>Philosophers</h2>
-          <div class="swiper-container philosophers-slider">
-            <div class="swiper-wrapper">
-              {% for philosopher in Philosophers %}
-              <div class="swiper-slide philosopher-card">
-                {% if philosopher.picture %}
-                <img
-                  src="{{ philosopher.picture.url }}"
-                  alt="{{ philosopher.FullName }}"
-                  class="philosopher-image"
-                />
-                {% endif %}
-                <h3>{{ philosopher.FullName }}</h3>
-                {% if philosopher.School %}
-                <p><strong>School:</strong> {{ philosopher.School.Name }}</p>
-                {% endif %}
-                <a
-                  href="{% url 'philosopher_detail' philosopher.id %}"
-                  class="btn"
-                  >Read More</a
-                >
-              </div>
-              {% endfor %}
+        <div class="swiper-container philosophers-slider">
+          <div class="swiper-wrapper">
+            {% for philosopher in Philosophers %}
+            <div class="swiper-slide philosopher-card">
+              {% if philosopher.picture %}
+              <img
+                src="{{ philosopher.picture.url }}"
+                alt="{{ philosopher.FullName }}"
+                class="philosopher-image"
+              />
+              {% endif %}
+              <h3>{{ philosopher.FullName }}</h3>
+              {% if philosopher.School %}
+              <p><strong>School:</strong> {{ philosopher.School.Name }}</p>
+              {% endif %}
+              <a
+                href="{% url 'philosopher_detail' philosopher.id %}"
+                class="btn"
+                >Read More</a
+              >
             </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+            {% endfor %}
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
       </div>
     </section>
 
     <footer>
       <div class="container">
-        <p>&copy; 2025 Philosophy In Progress. All rights reserved.</p>
+        <p>
+          Icons by
+          <a href="https://icons8.com/">Icons8</a>
+        </p>
       </div>
     </footer>
     <button id="back-to-top" class="btn">Back to Top</button>
