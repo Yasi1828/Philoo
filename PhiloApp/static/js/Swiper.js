@@ -4,7 +4,7 @@ const swiper = new Swiper(".swiper-container", {
   spaceBetween: 20,
   centeredSlides: true,
   noSwiping: true,
-  noSwipingClass: "philosopher-card",
+  // noSwipingClass: "philosopher-card",
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
@@ -12,8 +12,8 @@ const swiper = new Swiper(".swiper-container", {
     dynamicMainBullets: 5,
   },
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: "#custom-control .next",
+    prevEl: "#custom-control .prev",
   },
   breakpoints: {
     768: {

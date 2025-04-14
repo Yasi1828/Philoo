@@ -6,12 +6,13 @@ body {
   margin: 0;
   padding: 0;
   text-align: center;
+  overflow-x: hidden;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 5px;
 }
 
 h1 {
@@ -37,7 +38,7 @@ a:hover {
 
 /* Header Styles */
 header {
-  background-image: url("images/back3.jpg");
+  background-image: url("images/Back6.png");
   background-size: cover;
   background-position: center;
   border-bottom: 1px solid #eadcd6;
@@ -53,15 +54,20 @@ header {
 header h1 {
   margin: 0;
   font-size: 2.5rem;
-  color: #dfd1d1;
+  color: #4a5d7e;
+}
+header p {
+  margin: 0;
+  font-size: 1rem;
+  color: #4a5d7ec8;
 }
 
 /* Button Styles */
 .btn {
   display: inline-block;
   padding: 0.8em;
-  background-color: #8a9ea9;
-  color: white;
+  background-color: #bfb4b4;
+  color: #4e4f52;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -104,7 +110,7 @@ header h1 {
   width: 100%;
   padding: 40px 0;
   text-align: center;
-  background-color: #e2dad6;
+  background-color: #f5efe7;
 }
 
 .philosophers-section h2,
@@ -122,11 +128,10 @@ header h1 {
 
 /* Footer Section */
 footer {
-  background-color: #6482ad;
+  background-color: #789dbc;
   color: #f5eded;
   text-align: center;
   padding: 20px 0;
-  margin-top: 40px;
 }
 
 footer a {
@@ -148,7 +153,7 @@ footer a:hover {
 
 /* Top Nav */
 .topnav {
-  background-color: #6482ad;
+  background-color: #789dbc;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   position: sticky;
@@ -180,7 +185,8 @@ footer a:hover {
   min-height: 500px;
   position: relative;
   margin: 0 auto;
-  padding: 10px 0 0;
+  padding: 5px;
+  overflow: hidden;
 }
 .swiper-slide-active {
   transform: translateX(0) !important;
@@ -200,8 +206,9 @@ footer a:hover {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: #eee9e7;
-  padding: 10px;
+  /* background: #eee9e7; */
+  background: linear-gradient(180deg, #eee8e5 0%, #edd6cbdc 100%);
+  padding: 5px;
   border-radius: 20px;
   border: 1px solid #eadcd6;
   width: 80%;
@@ -229,7 +236,7 @@ footer a:hover {
   font-size: 0.9rem;
   margin: 0.5em 0;
   line-height: 1.2;
-  color: #6482ad;
+  color: #40464e;
 }
 
 .philosopher-card p,
@@ -242,16 +249,36 @@ footer a:hover {
 
 .swiper-pagination-bullet {
   background-color: #0077b6;
-  margin: 0 5px !important;
+  margin: 0 4px !important;
 }
 .swiper-pagination {
-  bottom: 0;
+  bottom: 80px !important;
   position: absolute;
 
   width: 100%;
 }
+.control {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
 
-.swiper-button-prev,
+.control li {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 50%;
+  background: #ecc6b4dc;
+  cursor: pointer;
+  transform: scale(1);
+  color: white;
+}
+
+/* .swiper-button-prev,
 .swiper-button-next {
   color: #4a5d7e !important;
   width: 40px;
@@ -279,7 +306,8 @@ footer a:hover {
 .swiper-slide-prev {
   transform: translateX(-15%) !important;
   opacity: 0.7 !important;
-}
+} */
+
 .swiper-pagination-bullet-active {
   background: #6482ad !important;
 }
@@ -297,7 +325,7 @@ footer a:hover {
   bottom: 1rem;
   right: 1rem;
   background-color: #4b6181; /* Teal-blue */
-  color: #f5eded;
+  color: white;
   border: none;
   border-radius: 50%;
   width: 5rem;
