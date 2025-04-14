@@ -214,20 +214,20 @@ footer a:hover {
   width: 80%;
   max-width: 250px;
   height: 100%;
-  max-height: 400px;
+  max-height: 360px;
   transition: transform 0.3s;
   will-change: transform;
   backface-visibility: hidden;
 }
 .philosopher-card:hover,
 .school-card:hover {
-  transform: scale(1.07) !important;
+  transform: scale(1.03) !important;
   z-index: 10;
 }
 .philosopher-image {
   max-width: 200px;
   height: 250px;
-  margin-bottom: 1rem;
+  margin-bottom: 0.3rem;
   border-radius: 50%;
 }
 
@@ -262,7 +262,7 @@ footer a:hover {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
 }
 
 .control li {
@@ -278,35 +278,13 @@ footer a:hover {
   color: white;
 }
 
-/* .swiper-button-prev,
-.swiper-button-next {
-  color: #4a5d7e !important;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-
-  cursor: pointer;
-  z-index: 10;
-}
-.swiper-button-prev {
-  left: 10px;
-  position: absolute;
+#custom-control .prev {
+  left: -19px;
 }
 
-.swiper-button-next {
-  right: 10px;
-  position: absolute;
+#custom-control .next {
+  right: 21px;
 }
-.swiper-slide-next {
-  transform: translateX(15%) !important;
-  opacity: 0.7 !important;
-}
-
-.swiper-slide-prev {
-  transform: translateX(-15%) !important;
-  opacity: 0.7 !important;
-} */
 
 .swiper-pagination-bullet-active {
   background: #6482ad !important;
