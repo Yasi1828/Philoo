@@ -204,30 +204,26 @@ footer a:hover {
   padding: 10px;
   border-radius: 20px;
   border: 1px solid #eadcd6;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   width: 80%;
   max-width: 250px;
   height: 100%;
   max-height: 400px;
-  transform: scale(1); /* Initial state */
-  transform-origin: center; /* Zoom from center */
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    box-shadow 0.4s ease; /* Smooth zoom + shadow */
+  transition: transform 0.3s;
   will-change: transform;
+  backface-visibility: hidden;
 }
-
+.philosopher-card:hover,
+.school-card:hover {
+  transform: scale(1.07) !important;
+  z-index: 10;
+}
 .philosopher-image {
   max-width: 200px;
   height: 250px;
   margin-bottom: 1rem;
   border-radius: 50%;
 }
-.philosopher-card:hover,
-.school-card:hover {
-  transform: scale(1.08); /* 8% zoom (adjust as needed) */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* More pronounced shadow */
-  z-index: 20;
-}
+
 .philosopher-card h3,
 .school-card h3 {
   font-size: 0.9rem;
