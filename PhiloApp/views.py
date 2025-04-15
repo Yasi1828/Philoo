@@ -26,7 +26,7 @@ def school_list(request):
     return render(request, 'school_list.html', context=context)
 
 def philosopher_list(request):
-    hashtags = Hashtag.objects.all()
+    hashtags = Hashtag.objects.all().order_by('name')
     selected_hashtag = request.GET.get('hashtag')
     if selected_hashtag:
         philosophers = Philosophers.objects.filter(hashtags__name = selected_hashtag)

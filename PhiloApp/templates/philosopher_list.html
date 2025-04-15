@@ -50,11 +50,12 @@
               id="hashtag-search"
               placeholder="Search hashtags..."
               class="search-input"
+              onkeyup="Filtering()"
             />
 
             <!-- Scrollable Hashtag List -->
             <div class="hashtag-list">
-              <ul>
+              <ul id="FilterUL">
                 <li><a href="?">All</a></li>
                 {% for hashtag in hashtags %}
                 <li>
@@ -96,8 +97,9 @@
 
     <footer>
       <div class="container">
-        <p>&copy; 2025 Philosophy In Progress. All rights reserved.</p>
+        <p>&copy; 2025 Philosophy In Progress.</p>
       </div>
     </footer>
+    <script src="{% static 'js/philo_list.js' %}"></script>
   </body>
 </html>
