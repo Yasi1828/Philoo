@@ -338,7 +338,6 @@ footer a:hover {
 }
 
 .magnifier-search > div {
-  display: inline-block;
   float: left;
   filter: drop-shadow(0 1px rgba(0, 0, 0, 0.1));
 }
