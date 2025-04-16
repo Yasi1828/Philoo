@@ -70,7 +70,7 @@ header h1 {
 
   font-size: 0.7rem;
   max-width: 80%;
-  margin-top: 1em;
+  margin-top: 0.2em;
   margin-bottom: 0em;
 }
 
@@ -163,8 +163,8 @@ footer a:hover {
 
 .pagination {
   display: flex;
-  justify-content: center; /* Center the pagination */
-  margin-top: 1.25rem; /* Space above pagination */
+  justify-content: center;
+  margin-top: 1.25rem;
   max-width: 100%;
   margin-left: 1.875rem;
 }
@@ -173,7 +173,7 @@ footer a:hover {
   display: inline-block;
   padding: 0.625rem 0.9375rem; /* 10px 15px */
   margin: 0 0.3125rem;
-  background-color: #0077b6; /* Dark blue background */
+  background-color: #789dbc; /* Dark blue background */
   color: #ffffff; /* White text */
   border-radius: 5px;
   cursor: pointer;
@@ -181,12 +181,13 @@ footer a:hover {
 }
 
 .page-btn:hover {
-  background-color: #005f8c; /* Darker blue on hover */
+  background-color: #6686a0; /* Darker blue on hover */
+  color: #ffffff;
 }
 
 /* Active Page Button */
 .page-btn.active {
-  background-color: #58a7f1; /* Lighter blue for active page */
+  background-color: #64b1f0; /* Lighter blue for active page */
 }
 .grid-container {
   flex: 1;
@@ -211,8 +212,8 @@ footer a:hover {
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 250px;
-  height: 360px;
+  width: 230px;
+  height: 320px;
   backface-visibility: hidden;
 }
 
@@ -222,27 +223,21 @@ footer a:hover {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
 }
 .grid-item h2 {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   margin: 0.5em 0;
-  line-height: 1.2;
+  line-height: 1;
   color: #40464e;
 }
 
-.grid-item p {
-  font-size: 0.9rem; /* Relative font size */
-  margin: 0.5em 0; /* Relative margin */
-  line-height: 1.4; /* Relative line height */
-}
-
 .philosopher-image {
-  max-width: 200px;
-  height: 250px;
-  margin-bottom: 0.3rem;
+  max-width: 170px;
+  height: 220px;
+
   border-radius: 50%;
 }
 
 .filter-section {
-  flex: 0 0 250px;
+  flex: 0 0 300px;
   position: sticky;
   top: 100px;
   max-height: calc(100vh - 100px);
@@ -252,9 +247,7 @@ footer a:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   align-self: flex-start;
 }
-.hashtag-list a {
-  color: #40464e;
-}
+
 .main-content {
   display: flex;
   gap: 1.25em;
@@ -315,7 +308,7 @@ footer a:hover {
 
 .filter-section ul li a {
   text-decoration: none;
-  color: #0077b6; /* Dark blue for links */
+  color: #40464e;
 }
 
 .filter-section ul li a:hover {
@@ -325,4 +318,71 @@ footer a:hover {
 .filter-section ul li a.active {
   font-weight: bold;
   color: #005f8c; /* Darker blue for active link */
+}
+
+/* .SearchBar {
+  float: left;
+  color: #f5eded;
+  text-align: center;
+  padding: 4px 4px;
+  text-decoration: none;
+  font-size: 13px;
+  margin-top: 14px;
+} */
+
+/* Search styles */
+
+.magnifier-search {
+  margin-left: auto; /* Push to far right */
+  padding-right: 20px;
+}
+
+.magnifier-search > div {
+  display: inline-block;
+  float: left;
+  filter: drop-shadow(0 1px rgba(0, 0, 0, 0.1));
+}
+
+/* The magnifier "handle" (diagonal line) */
+.magnifier-search > div:after {
+  content: "";
+  background: white;
+  width: 2px;
+  height: 11px;
+  position: absolute;
+  top: 39px; /* Adjust based on your input height */
+  right: 0px;
+  transform: rotate(135deg);
+  pointer-events: none;
+}
+.magnifier-input {
+  color: white;
+  font-size: 16px;
+  background: transparent;
+  width: 15px; /* Starts small (like a magnifier) */
+  height: 15px;
+  padding: 10px;
+  border: solid 2px white;
+  outline: none;
+  border-radius: 20px; /* Fully rounded */
+  transition: width 0.3s ease;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+/* Hide placeholder by default */
+.magnifier-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Show placeholder when focused */
+.magnifier-input:focus::placeholder {
+  opacity: 1;
+}
+.magnifier-input:focus,
+.magnifier-input:not(:placeholder-shown) {
+  width: 180px; /* Expanded width */
+  cursor: text;
 }
