@@ -16,3 +16,21 @@ function Filtering() {
     }
   }
 }
+
+function Searching() {
+  var input = document.querySelector(".magnifier-input");
+  var filter = input.value.toUpperCase();
+  var items = document.getElementsByClassName("grid-item");
+
+  if (input) {
+    for (i = 0; i < items.length; i++) {
+      var names = items[i].getElementsByTagName("h2")[0];
+      var namesText = names.innerText || names.textContent;
+      if (namesText.toUpperCase().includes(filter)) {
+        items[i].style.display = "";
+      } else {
+        items[i].style.display = "none";
+      }
+    }
+  }
+}
