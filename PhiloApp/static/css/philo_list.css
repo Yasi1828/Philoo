@@ -385,3 +385,8 @@ footer a:hover {
   width: 180px; /* Expanded width */
   cursor: text;
 }
+.highlight {
+  background-color: #7fc3fa;
+  color: black;
+  font-weight: bold;
+}

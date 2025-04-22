@@ -1,8 +1,8 @@
 function Filtering() {
-  var input = document.getElementById("hashtag-search");
-  var filter = input.value.toUpperCase();
-  var ul = document.getElementById("FilterUL");
-  var li = ul.getElementsByTagName("li");
+  const input = document.getElementById("hashtag-search");
+  const filter = input.value.toUpperCase();
+  const ul = document.getElementById("FilterUL");
+  const li = ul.getElementsByTagName("li");
 
   if (input) {
     for (i = 0; i < li.length; i++) {
@@ -18,19 +18,47 @@ function Filtering() {
 }
 
 function Searching() {
-  var input = document.querySelector(".magnifier-input");
-  var filter = input.value.toUpperCase();
-  var items = document.getElementsByClassName("grid-item");
+  const input = document.querySelector(".magnifier-input");
+  const filter = input.value.trim().toUpperCase();
+  const items = document.getElementsByClassName("grid-item");
 
-  if (input) {
-    for (i = 0; i < items.length; i++) {
-      var names = items[i].getElementsByTagName("h2")[0];
-      var namesText = names.innerText || names.textContent;
-      if (namesText.toUpperCase().includes(filter)) {
-        items[i].style.display = "";
-      } else {
-        items[i].style.display = "none";
-      }
+  // Store original text if not already stored
+  Array.from(items).forEach((item) => {
+    const h2 = item.querySelector("h2");
+    if (!h2.dataset.originalText) {
+      h2.dataset.originalText = h2.textContent;
     }
+  });
+
+  if (!filter) {
+    // Reset to original text
+    Array.from(items).forEach((item) => {
+      const h2 = item.querySelector("h2");
+      h2.innerHTML = h2.dataset.originalText;
+      item.style.display = "";
+    });
+    return;
   }
+
+  // Apply temporary highlighting
+  Array.from(items).forEach((item) => {
+    const h2 = item.querySelector("h2");
+    const originalText = h2.dataset.originalText;
+    const upperText = originalText.toUpperCase();
+    const matchIndex = upperText.indexOf(filter);
+
+    if (matchIndex !== -1) {
+      item.style.display = "";
+      h2.innerHTML =
+        originalText.substring(0, matchIndex) +
+        `<span class="highlight">${originalText.substring(
+          matchIndex,
+          matchIndex + filter.length
+        )}</span>` +
+        originalText.substring(matchIndex + filter.length);
+    } else {
+      item.style.display = "none";
+      h2.innerHTML = originalText; // Maintain original text
+    }
+  });
 }
