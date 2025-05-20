@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Philosophy In Progress</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    {% comment %}
+    <link rel="stylesheet" href="{% static 'css/Swiper.css' %}" />
+    {% endcomment %}
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="topnav">
+      <a class="active" href="{% url 'index' %}">Home</a>
+      <a href="{% url 'philosopher_list' %}">Philosophers</a>
+      <!-- <a href="{% url 'school_list' %}">Schools</a> -->
+    </div>
+    <header>
+      <h1>Philosophy In Progress</h1>
+      <p>Exploring the world of philosophy, one thought at a time.</p>
+    </header>
+
+    <!-- Philosophers Section -->
+    <section class="philosophers-section">
+      <div class="container">
+        <h2>Philosophers</h2>
+        <div class="swiper-container philosophers-slider">
+          <div class="swiper-wrapper">
+            {% for philosopher in Philosophers %}
+            <div class="swiper-slide philosopher-card">
+              {% if philosopher.picture %}
+              <img
+                src="{{ philosopher.picture.url }}"
+                alt="{{ philosopher.FullName }}"
+                class="philosopher-image"
+              />
+              {% endif %}
+              <h3>{{ philosopher.FullName }}</h3>
+              {% if philosopher.School %}
+              <p><strong>School:</strong> {{ philosopher.School.Name }}</p>
+              {% endif %}
+              <a
+                href="{% url 'philosopher_detail' philosopher.id %}"
+                class="btn"
+                >Read More</a
+              >
+            </div>
+            {% endfor %}
+          </div>
+          {% comment %}
+          <div class="swiper-pagination"></div>
+          {% endcomment %} {% comment %}
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          {% endcomment %}
+          <ul class="control" id="custom-control">
+            <li class="prev">
+              <img
+                width="30"
+                height="30"
+                src="https://img.icons8.com/ios-glyphs/30/back.png"
+                alt="back"
+              />
+            </li>
+            <li class="next">
+              <img
+                width="30"
+                height="30"
+                src="https://img.icons8.com/ios-glyphs/30/forward.png"
+                alt="forward"
+              />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>
+          Icons by
+          <a href="https://icons8.com/">Icons8</a>
+        </p>
+      </div>
+    </footer>
+    <button id="back-to-top" class="btn">Back to Top</button>
+
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/Swiper.js' %}"></script>
+  </body>
+</html>
