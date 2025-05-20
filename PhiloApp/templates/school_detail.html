@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ school.Name }}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <div class="topnav">
+      <a href="{% url 'index' %}">Home</a>
+      <a href="{% url 'philosopher_list' %}">Philosophers</a>
+      <a href="{% url 'school_list' %}">Schools</a>
+    </div>
+  </head>
+  <body>
+    <header>
+      <h1>{{ school.Name }}</h1>
+    </header>
+    <div class="container">
+      <div class="school-detail">
+        <p><strong>Concept:</strong> {{ school.Concept }}</p>
+        <h2>Philosophers</h2>
+        <ul class="list-group">
+          {% for philosopher in school.philosophers.all %}
+          <li class="list-group-item">
+            <a href="{% url 'philosopher_detail' philosopher.id %}"
+              >{{ philosopher.FullName }}</a
+            >
+          </li>
+          {% endfor %}
+        </ul>
+        <a href="{% url 'index' %}" class="btn">Back to Home</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,392 @@
+/* General Styles */
+body {
+  font-family: "Georgia", serif;
+  background-color: #f5efe7; /* Light blue background */
+  color: #f5eded; /* Dark grey text */
+  margin: 0;
+  padding: 0;
+  text-align: center; /* Center-align all text */
+  font-size: 1rem;
+}
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+h1 {
+  color: #4a5d7e; /* Dark blue for headings */
+  text-align: center; /* Center-align headings */
+  font-size: 2.5rem;
+}
+
+h2,
+h3 {
+  color: #4a5d7e; /* Dark blue for headings */
+  text-align: center; /* Center-align headings */
+  font-size: 1.5rem;
+}
+
+a {
+  color: #4a5d7e; /* Light blue for links */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #4a5d7e; /* Darker blue on hover */
+  text-decoration: underline;
+}
+
+/* Header Styles */
+header {
+  background-size: cover;
+  background-position: center;
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 0;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #4a5d7e;
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  padding: 0.8em;
+  background-color: #bfb4b4;
+  color: #4e4f52;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  font-size: 0.7rem;
+  max-width: 80%;
+  margin-top: 0.2em;
+  margin-bottom: 0em;
+}
+
+.btn:hover {
+  background-color: #6b8c9e;
+  text-decoration: underline;
+  color: white;
+}
+
+/* Intro Section */
+.intro-section {
+  background-color: #b7d8f1; /* Light blue background */
+  padding: 40px 0;
+  text-align: center;
+}
+
+.intro-section h2 {
+  color: #102c8ed3; /* Dark blue heading */
+  margin-bottom: 20px;
+}
+
+.intro-section p {
+  font-size: 1.1rem;
+  color: #4a5d7e; /* Dark grey text */
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Philosophers and Schools Sections */
+.philosophers-section {
+  padding: 1.25rem;
+}
+
+.philosophers-section h2 {
+  color: #4a5d7e;
+  margin-bottom: 20px;
+  grid-column: 1 / -1;
+}
+
+.philosophers-section p {
+  font-size: 1.1rem;
+  color: #4a5d7e; /* Dark grey text */
+  margin-bottom: 20px;
+}
+
+/* Footer Section */
+footer {
+  background-color: #789dbc;
+  color: #f5eded;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+footer a {
+  color: #f5dada;
+  text-decoration: underline;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: #f6cbcb;
+}
+
+.topnav {
+  background-color: #789dbc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.topnav a {
+  float: left;
+  color: #f5eded;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 19px;
+}
+
+.topnav a:hover {
+  background-color: #35697a;
+}
+
+.topnav a.active {
+  background-color: #426c90;
+  color: #f5eded;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.25rem;
+  max-width: 100%;
+  margin-left: 1.875rem;
+}
+
+.page-btn {
+  display: inline-block;
+  padding: 0.625rem 0.9375rem; /* 10px 15px */
+  margin: 0 0.3125rem;
+  background-color: #789dbc; /* Dark blue background */
+  color: #ffffff; /* White text */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.page-btn:hover {
+  background-color: #6686a0; /* Darker blue on hover */
+  color: #ffffff;
+}
+
+/* Active Page Button */
+.page-btn.active {
+  background-color: #64b1f0; /* Lighter blue for active page */
+}
+.grid-container {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: flex-start; /* Changed from center */
+  min-height: 50vh; /* Prevent collapse */
+  align-content: flex-start; /* kept items pinned to the top during layout changes */
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  background: linear-gradient(180deg, #eee8e5 0%, #edd6cbdc 100%);
+  padding: 15px;
+  margin: 0;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 230px;
+  height: 320px;
+  backface-visibility: hidden;
+}
+
+.grid-item:hover {
+  transform: scale(1.03) !important;
+  z-index: 10;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+.grid-item h2 {
+  font-size: 0.8rem;
+  margin: 0.5em 0;
+  line-height: 1;
+  color: #40464e;
+}
+
+.philosopher-image {
+  max-width: 170px;
+  height: 220px;
+
+  border-radius: 50%;
+}
+
+.filter-section {
+  flex: 0 0 300px;
+  position: sticky;
+  top: 100px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  background-color: #d1c6c6;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  align-self: flex-start;
+}
+
+.main-content {
+  display: flex;
+  gap: 1.25em;
+  padding: 1.25em;
+  align-items: flex-start;
+  min-height: 100vh;
+  position: relative; /* established a new containing block for the sticky filter, making its positioning relative to .main-content rather than the viewport */
+}
+
+@media (max-width: 100%) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
+  }
+}
+/* 
+@media (max-width: 100%) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 100%) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+} */
+@media (max-width: 768px) {
+  .grid-item {
+    width: calc(50% - 1em); /* 2 items per row on medium screens */
+  }
+}
+@media (max-width: 480px) {
+  .grid-item {
+    width: 100%; /* 1 item per row on small screens */
+  }
+  .main-content {
+    flex-direction: column; /* Stack filter-section below grid-container */
+  }
+  .filter-section {
+    margin-left: 0; /* Remove left margin on small screens */
+    margin-top: 1.25rem; /* 20px */
+  }
+}
+/* filter */
+
+/* Add these styles to your CSS file */
+.filter-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.filter-section ul li {
+  margin: 0.5em 0;
+}
+
+.filter-section ul li a {
+  text-decoration: none;
+  color: #40464e;
+}
+
+.filter-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.filter-section ul li a.active {
+  font-weight: bold;
+  color: #005f8c; /* Darker blue for active link */
+}
+
+/* .SearchBar {
+  float: left;
+  color: #f5eded;
+  text-align: center;
+  padding: 4px 4px;
+  text-decoration: none;
+  font-size: 13px;
+  margin-top: 14px;
+} */
+
+/* Search styles */
+
+.magnifier-search {
+  margin-left: auto; /* Push to far right */
+  padding-right: 20px;
+}
+
+.magnifier-search > div {
+  float: left;
+  filter: drop-shadow(0 1px rgba(0, 0, 0, 0.1));
+}
+
+/* The magnifier "handle" (diagonal line) */
+.magnifier-search > div:after {
+  content: "";
+  background: white;
+  width: 2px;
+  height: 11px;
+  position: absolute;
+  top: 39px; /* Adjust based on your input height */
+  right: 0px;
+  transform: rotate(135deg);
+  pointer-events: none;
+}
+.magnifier-input {
+  color: white;
+  font-size: 16px;
+  background: transparent;
+  width: 15px; /* Starts small (like a magnifier) */
+  height: 15px;
+  padding: 10px;
+  border: solid 2px white;
+  outline: none;
+  border-radius: 20px; /* Fully rounded */
+  transition: width 0.3s ease;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+/* Hide placeholder by default */
+.magnifier-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Show placeholder when focused */
+.magnifier-input:focus::placeholder {
+  opacity: 1;
+}
+.magnifier-input:focus,
+.magnifier-input:not(:placeholder-shown) {
+  width: 180px; /* Expanded width */
+  cursor: text;
+}
+.highlight {
+  background-color: #7fc3fa;
+  color: black;
+  font-weight: bold;
+}

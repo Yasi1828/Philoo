@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ philosopher.FullName }}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <div class="topnav">
+      <a href="{% url 'index' %}">Home</a>
+      <a href="{% url 'philosopher_list' %}">Philosophers</a>
+      <a href="{% url 'school_list' %}">Schools</a>
+    </div>
+  </head>
+  <body>
+    <header>
+      <h1>{{ philosopher.FullName }}</h1>
+    </header>
+    <div class="container">
+      <div class="philosopher-detail">
+        {% if philosopher.picture %}
+        <img
+          src="{{ philosopher.picture.url }}"
+          alt="{{ philosopher.FullName }}"
+          class="detail-image"
+        />
+        {% endif %}
+        <p><strong>Birth Date:</strong> {{ philosopher.BirthDate }}</p>
+        <p><strong>Bio:</strong> {{ philosopher.Bio }}</p>
+        <p><strong>Key Ideas:</strong> {{ philosopher.KeyIdeas }}</p>
+        {% if philosopher.School %}
+        <p>
+          <strong>School:</strong>
+          <a href="{% url 'school_detail' philosopher.School.id %}"
+            >{{ philosopher.School.Name }}</a
+          >
+        </p>
+        {% endif %}
+        <a href="{% url 'index' %}" class="btn">Back to Home</a>
+      </div>
+    </div>
+  </body>
+</html>
