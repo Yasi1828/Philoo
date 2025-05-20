@@ -159,7 +159,7 @@ footer a:hover {
   position: sticky;
   top: 0;
   z-index: 100;
-}
+} 
 .topnav a {
   float: left;
   color: #f5eded;
@@ -168,6 +168,20 @@ footer a:hover {
   text-decoration: none;
   font-size: 19px;
 }
+
+/* .topnav {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center; 
+  gap: 5px;
+  padding: 10px 5px;
+}
+
+.topnav a {
+  padding: 8px 10px;
+  font-size: 14px;  
+  white-space: nowrap;
+} */
 
 .topnav a:hover {
   background-color: #35697a;
@@ -315,3 +329,15 @@ footer a:hover {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   display: none; /* Hidden by default */
 }
+
+
+
+/* @media (max-width: 242px) {
+  .topnav a:not(.active) {
+    display: none;
+  }
+  .topnav a.active {
+    width: 100%;
+    text-align: center;
+  }
+} */
