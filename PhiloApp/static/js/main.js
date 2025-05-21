@@ -100,12 +100,27 @@ document.addEventListener('DOMContentLoaded', function() {
   updateButtonIcon(currentTheme);
 
   // Toggle theme on button click
-  themeToggle.addEventListener('click', function() {
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateButtonIcon(newTheme);
-  });
+themeToggle.addEventListener('click', function() {
+  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+  
+  // Apply theme locally
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  updateButtonIcon(newTheme);
+
+  // Send theme preference to Django backend
+  fetch('/set-theme/', {
+    method: 'POST',
+    headers: { 
+      'X-CSRFToken': getCookie('csrftoken'),  // CSRF token for Django
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ theme: newTheme })
+  })
+  .then(response => response.json())
+  .then(data => console.log('Theme saved:', data))
+  .catch(error => console.error('Error:', error));
+});
 
   function updateButtonIcon(theme) {
     themeToggle.textContent = theme === 'light' ? '🌓' : '☀️';

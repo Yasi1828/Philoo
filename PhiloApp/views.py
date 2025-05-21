@@ -1,6 +1,8 @@
 from django.shortcuts import render,get_object_or_404
 from .models import Philosophers, Schools, Hashtag
 from django.core.paginator import Paginator
+from django.http import JsonResponse 
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 def index(request):
@@ -45,3 +47,9 @@ def philosopher_list(request):
 
 
 
+# In views.py
+def set_theme(request):
+    if request.method == 'POST':
+        theme = request.POST.get('theme')
+        request.session['theme'] = theme
+        return JsonResponse({'status': 'success'})
