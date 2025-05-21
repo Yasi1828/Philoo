@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Philosophy In Progress</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-    {% comment %}
+    
     <link rel="stylesheet" href="{% static 'css/Swiper.css' %}" />
-    {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/dark-styles.css' %}" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
@@ -19,7 +19,10 @@
     <div class="topnav">
       <a class="active" href="{% url 'index' %}">Home</a>
       <a href="{% url 'philosopher_list' %}">Philosophers</a>
-      <!-- <a href="{% url 'school_list' %}">Schools</a> -->
+      <button id="theme-toggle" class="theme-toggle-btn">
+        🌓 
+      </button>
+
     </div>
     <header>
       <h1>Philosophy In Progress</h1>

@@ -87,3 +87,27 @@ document.getElementById("next-school").addEventListener("click", () => {
     updateVisibility();
   }
 });
+
+
+// dark mode
+
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggle = document.getElementById('theme-toggle');
+  const currentTheme = localStorage.getItem('theme') || 'light';
+
+  // Set initial theme
+  document.documentElement.setAttribute('data-theme', currentTheme);
+  updateButtonIcon(currentTheme);
+
+  // Toggle theme on button click
+  themeToggle.addEventListener('click', function() {
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateButtonIcon(newTheme);
+  });
+
+  function updateButtonIcon(theme) {
+    themeToggle.textContent = theme === 'light' ? '🌓' : '☀️';
+  }
+});

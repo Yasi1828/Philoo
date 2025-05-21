@@ -1,0 +1,38 @@
+:root {
+  /* Light Mode (Default) */
+  --bg-color: #f5efe7;
+  --text-color: #4a5d7e;
+  --navbar-bg: #789dbc;
+  --card-bg: linear-gradient(180deg, #eee8e5 0%, #edd6cbdc 100%);
+  /* Add more variables as needed */
+}
+
+[data-theme="dark"] {
+  /* Dark Mode */
+  --bg-color: #1a1a2e;
+  --text-color: #e6e6e6;
+  --navbar-bg: #16213e;
+  --card-bg: linear-gradient(180deg, #2d4059 0%, #1a1a2e 100%);
+}
+
+/* Apply Variables to Elements */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.topnav {
+  background-color: var(--navbar-bg);
+}
+
+.grid-item {
+  background: var(--card-bg);
+}
+.theme-toggle-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 5px 10px;
+  margin-left: auto; /* Push to the right if in navbar */
+}
