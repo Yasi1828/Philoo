@@ -89,40 +89,55 @@ document.getElementById("next-school").addEventListener("click", () => {
 });
 
 
+
 // dark mode
 
 document.addEventListener('DOMContentLoaded', function() {
   const themeToggle = document.getElementById('theme-toggle');
-  const currentTheme = localStorage.getItem('theme') || 'light';
-
-  // Set initial theme
+  
+  // Initialize theme - check localStorage first, then cookie, then default to light
+  let currentTheme = localStorage.getItem('theme') || 
+                    getCookie('theme') || 
+                    'light';
   document.documentElement.setAttribute('data-theme', currentTheme);
   updateButtonIcon(currentTheme);
 
-  // Toggle theme on button click
-themeToggle.addEventListener('click', function() {
-  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-  
-  // Apply theme locally
-  document.documentElement.setAttribute('data-theme', newTheme);
-  localStorage.setItem('theme', newTheme);
-  updateButtonIcon(newTheme);
+  themeToggle.addEventListener('click', function() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    // Apply theme immediately for better UX
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateButtonIcon(newTheme);
 
-  // Send theme preference to Django backend
-  fetch('/set-theme/', {
-    method: 'POST',
-    headers: { 
-      'X-CSRFToken': getCookie('csrftoken'),  // CSRF token for Django
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ theme: newTheme })
-  })
-  .then(response => response.json())
-  .then(data => console.log('Theme saved:', data))
-  .catch(error => console.error('Error:', error));
-});
+    // Send to server
+    fetch('/set-theme/', {
+      method: 'POST',
+      headers: {
+        'X-CSRFToken': getCookie('csrftoken'),
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `theme=${encodeURIComponent(newTheme)}`
+    }).catch(error => console.error('Error:', error));
+  });
 
   function updateButtonIcon(theme) {
-    themeToggle.textContent = theme === 'light' ? '🌓' : '☀️';
+    themeToggle.innerHTML = theme === 'light' ? '🌓' : '☀️';
+  }
+
+  function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
   }
 });

@@ -1,8 +1,9 @@
 from django.shortcuts import render,get_object_or_404
 from .models import Philosophers, Schools, Hashtag
 from django.core.paginator import Paginator
-from django.http import JsonResponse 
+from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
 
 # Create your views here.
 def index(request):
@@ -47,9 +48,13 @@ def philosopher_list(request):
 
 
 
-# In views.py
+
+@require_POST
+@csrf_exempt  # Only use this if you're having CSRF issues during development
 def set_theme(request):
     if request.method == 'POST':
-        theme = request.POST.get('theme')
-        request.session['theme'] = theme
-        return JsonResponse({'status': 'success'})
+        theme = request.POST.get('theme', 'light')
+        response = JsonResponse({'status': 'success'})
+        response.set_cookie('theme', theme, max_age=365*24*60*60)  # 1 year
+        return response
+    return JsonResponse({'status': 'error'}, status=400)

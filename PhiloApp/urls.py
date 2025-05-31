@@ -11,4 +11,5 @@ urlpatterns = [
     path('school/', views.school_list, name='school_list'),
     
     path('philosopher/', views.philosopher_list, name='philosopher_list'),
+    path('set-theme/', views.set_theme, name='set_theme'),
 ]
