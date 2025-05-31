@@ -105,22 +105,22 @@ header p {
 }
 
 /* Philosophers and Schools Sections */
-.philosophers-section,
-.schools-section {
+.philosophers-section
+ {
   width: 100%;
   padding: 40px 0;
   text-align: center;
   background-color: #f5efe7;
 }
 
-.philosophers-section h2,
-.schools-section h2 {
+.philosophers-section h2
+ {
   color: #4a5d7e;
   margin-bottom: 20px;
 }
 
-.philosophers-section p,
-.schools-section p {
+.philosophers-section p
+ {
   font-size: 1.1rem;
   color: #4a5d7e; /* Dark grey text */
   margin-bottom: 20px;

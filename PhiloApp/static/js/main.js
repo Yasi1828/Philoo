@@ -1,3 +1,4 @@
+console.log("Script loaded!"); 
 // Select all the elements with the class "album-card"
 const albumCards = document.querySelectorAll(".album-card");
 
@@ -58,60 +59,30 @@ function updateVisibility() {
 // Initial visibility
 updateVisibility();
 
-// Navigation for Philosophers
-document.getElementById("prev-philosopher").addEventListener("click", () => {
-  if (currentIndexPhilosophers > 0) {
-    currentIndexPhilosophers--;
-    updateVisibility();
-  }
-});
-
-document.getElementById("next-philosopher").addEventListener("click", () => {
-  if (currentIndexPhilosophers < albumCardsPhilosophers.length - 1) {
-    currentIndexPhilosophers++;
-    updateVisibility();
-  }
-});
-
-// Navigation for Schools
-document.getElementById("prev-school").addEventListener("click", () => {
-  if (currentIndexSchools > 0) {
-    currentIndexSchools--;
-    updateVisibility();
-  }
-});
-
-document.getElementById("next-school").addEventListener("click", () => {
-  if (currentIndexSchools < albumCardsSchools.length - 1) {
-    currentIndexSchools++;
-    updateVisibility();
-  }
-});
 
 
 
 // dark mode
 
 document.addEventListener('DOMContentLoaded', function() {
+
+
   const themeToggle = document.getElementById('theme-toggle');
-  
-  // Initialize theme - check localStorage first, then cookie, then default to light
-  let currentTheme = localStorage.getItem('theme') || 
-                    getCookie('theme') || 
-                    'light';
-  document.documentElement.setAttribute('data-theme', currentTheme);
-  updateButtonIcon(currentTheme);
 
+  // Initialize theme (should happen ON PAGE LOAD, not on click)
+  const currentTheme = localStorage.getItem('theme') || 
+                      getCookie('theme') || 
+                      'light';
+  applyTheme(currentTheme);
+
+  // SINGLE click handler
   themeToggle.addEventListener('click', function() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+ 
     
-    // Apply theme immediately for better UX
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateButtonIcon(newTheme);
-
-    // Send to server
+    const current = document.documentElement.getAttribute('data-theme');
+    const newTheme = current === 'light' ? 'dark' : 'light';
+    applyTheme(newTheme);
+    
     fetch('/set-theme/', {
       method: 'POST',
       headers: {
@@ -119,25 +90,22 @@ document.addEventListener('DOMContentLoaded', function() {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: `theme=${encodeURIComponent(newTheme)}`
-    }).catch(error => console.error('Error:', error));
+    }).then(r => r.json()).then(data => {
+      console.log('Theme saved:', data);
+    }).catch(err => {
+      console.error('Error saving theme:', err);
+    });
   });
 
-  function updateButtonIcon(theme) {
-    themeToggle.innerHTML = theme === 'light' ? '🌓' : '☀️';
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    themeToggle.textContent = theme === 'light' ? '🌓' : '☀️';
   }
 
   function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-      const cookies = document.cookie.split(';');
-      for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim();
-        if (cookie.substring(0, name.length + 1) === (name + '=')) {
-          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-          break;
-        }
-      }
-    }
-    return cookieValue;
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
   }
 });

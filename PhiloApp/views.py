@@ -50,11 +50,8 @@ def philosopher_list(request):
 
 
 @require_POST
-@csrf_exempt  # Only use this if you're having CSRF issues during development
 def set_theme(request):
-    if request.method == 'POST':
-        theme = request.POST.get('theme', 'light')
-        response = JsonResponse({'status': 'success'})
-        response.set_cookie('theme', theme, max_age=365*24*60*60)  # 1 year
-        return response
-    return JsonResponse({'status': 'error'}, status=400)
+    theme = request.POST.get('theme', 'light')
+    response = JsonResponse({'status': 'success'})
+    response.set_cookie('theme', theme, max_age=365*24*60*60)
+    return response
