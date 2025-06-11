@@ -15,10 +15,19 @@ body {
   padding: 5px;
   color: #4a5d7e;
 }
+p{
+    text-align: justify;
+    text-justify: inter-word;    /* Improves spacing between words */
+    hyphens: auto;              /* Adds hyphenation for better breaks (if needed) */
+    margin: 1em 0;              /* Adds spacing around paragraphs */
+    line-height: 2;           /* Improves readability */
+}
+
 
 h1 {
   color: #4a5d7e;
   text-align: center;
+  
 }
 
 h2,
@@ -41,7 +50,7 @@ a:hover {
 header {
   background-size: cover;
   background-position: center;
-  border-bottom: 1px solid #eadcd6;
+  border-bottom: 1px solid #e6ddd9;
   height: 400px;
   display: flex;
   flex-direction: column;
@@ -49,17 +58,18 @@ header {
   justify-content: center;
   padding: 20px 0;
   text-align: center;
+  background-color: #e6ddd9;
 }
 
 header h1 {
   margin: 0;
-  font-size: 2.5rem;
+  font-size: 1.7rem;
   color: #4a5d7e;
 }
 header p {
   margin: 0;
   font-size: 1rem;
-  color: #4a5d7ec8;
+  color: #7e4a51c8;
 }
 
 /* Button Styles */
@@ -67,12 +77,11 @@ header p {
   display: inline-block;
   padding: 0.8em;
   background-color: #bfb4b4;
-  color: #4e4f52;
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-
+  /* transition: background-color 0.3s ease; */
   font-size: 0.7rem;
   max-width: 80%;
   margin-top: 1em;

@@ -33,26 +33,12 @@ body {
   background-color: var(--navbar-bg);
 }
 
-.grid-item {
-  background: var(--card-bg);
-}
-
 
 header h1, header p {
   color: var(--header-text);
 }
 
-.philosophers-section h2,.philosopher-card h3 {
-  color: var(--header-text);
-}
 
-.philosophers-section {
-  background-color: var(--philo-section);
-}
-
-.control li{
-  background: var(--card-bg);
-}
 
 .btn{
   background-color: var(--philo-section);
@@ -63,7 +49,7 @@ footer{
 }
 
 header {
-  background-image: var(--bg-IMG);
+  background-image: var(--bg-color);
 
 }
 footer a {
@@ -74,14 +60,6 @@ footer a {
 footer a:hover {
   color: var(--footer-a-hover)
 }
-.filter-section {
-  background: var(--card-bg);
-
-
-}
-.filter-section ul li a{
+.container{
   color: var(--header-text);
-}
-h3{
-  color: var(--header-text); 
 }
