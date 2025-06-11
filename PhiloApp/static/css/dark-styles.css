@@ -6,17 +6,22 @@
   --card-bg: linear-gradient(180deg, #eee8e5 0%, #edd6cbdc 100%);
   --header-text: #4a5d7e;
   --philo-section: #f5efe7;
+  --bg-IMG:url("images/Back6.png");
+  --footer-a: #f5dada;
+  --footer-a-hover:#f6cbcb;
 }
 
 [data-theme="dark"] {
   /* Dark Mode */
   --bg-color: #1a1a2e;
-  --text-color: #e6e6e6;
-  --navbar-bg: #16213e;
+  --text-color: #ffffff;
+  --navbar-bg: #2f364e;
   --card-bg: linear-gradient(180deg, #99afcd 0%, #565675 100%);
   --header-text: #c9cacd;
-  --philo-section: rgb(7, 15, 39);
-  
+  --philo-section: rgb(50, 65, 109);
+  --bg-IMG:url("images/dark-back.jpg");
+  --footer-a: #b1c3e8;
+  --footer-a-hover:#96acd8;
 }
 
 /* Apply variables to elements */
@@ -56,4 +61,17 @@ header h1, header p {
 }
 footer{
   background-color: var(--navbar-bg);
+}
+
+header {
+  background-image: var(--bg-IMG);
+
+}
+footer a {
+  color: var(--footer-a);
+
+}
+
+footer a:hover {
+  color: var(--footer-a-hover)
 }
