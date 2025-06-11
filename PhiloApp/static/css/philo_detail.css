@@ -49,8 +49,8 @@ a:hover {
 /* Header Styles */
 header {
   background-size: cover;
-  background-position: center;
-  border-bottom: 1px solid #e6ddd9;
+ 
+  border-bottom: 1px solid #e0d8d4;
   height: 400px;
   display: flex;
   flex-direction: column;
@@ -58,7 +58,10 @@ header {
   justify-content: center;
   padding: 20px 0;
   text-align: center;
-  background-color: #e6ddd9;
+  background-color: #e0d8d4;
+}
+header p{
+  text-align: center;
 }
 
 header h1 {
@@ -66,11 +69,7 @@ header h1 {
   font-size: 1.7rem;
   color: #4a5d7e;
 }
-header p {
-  margin: 0;
-  font-size: 1rem;
-  color: #7e4a51c8;
-}
+
 
 /* Button Styles */
 .btn {
@@ -85,32 +84,13 @@ header p {
   font-size: 0.7rem;
   max-width: 80%;
   margin-top: 1em;
-  margin-bottom: 0em;
+  margin-bottom: 2em;
 }
 
 .btn:hover {
   background-color: #6b8c9e;
   text-decoration: underline;
   color: white;
-}
-
-
-/* Footer Section */
-footer {
-  background-color: #789dbc;
-  color: #f5eded;
-  text-align: center;
-  padding: 20px 0;
-}
-
-footer a {
-  color: #f5dada;
-  text-decoration: underline;
-}
-
-footer a:hover {
-  text-decoration: underline;
-  color: #f6cbcb;
 }
 
 
@@ -179,4 +159,26 @@ footer a:hover {
 }
 .theme-toggle-btn:hover {
     transform: translateY(-50%) scale(1.1); /* Slightly enlarge on hover */
+}
+
+
+footer {
+  background-color: #789dbc;
+  color: #f5eded;
+  text-align: center;
+  padding: 20px 0;
+}
+
+footer a {
+  color: #f5dada;
+  text-decoration: underline;
+  text-align: center;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: #f6cbcb;
+}
+footer p{
+  text-align: center;
 }
