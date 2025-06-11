@@ -8,6 +8,7 @@
   --philo-section: #f5efe7;
   --footer-a: #f5dada;
   --footer-a-hover:#f6cbcb;
+  --page-btn:#789dbc;
 
 }
 
@@ -21,6 +22,7 @@
   --philo-section: rgb(50, 65, 109);
   --footer-a: #b1c3e8;
   --footer-a-hover:#96acd8;
+  --page-btn:linear-gradient(180deg, #99afcd 0%, #565675 100%);
 }
 
 /* Apply variables to elements */
@@ -56,6 +58,10 @@ header h1, header p {
 
 .btn{
   background-color: var(--philo-section);
+  color: var(--header-text);
+}
+.page-btn {
+  background-color: var(--page-btn);
   color: var(--header-text);
 }
 footer{
