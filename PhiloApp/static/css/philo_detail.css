@@ -1,0 +1,173 @@
+/* General Styles */
+body {
+  font-family: "Georgia", serif;
+  background-color: #e2dad6; /* Warm beige background */
+  color: #f5eded;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5px;
+  color: #4a5d7e;
+}
+
+h1 {
+  color: #4a5d7e;
+  text-align: center;
+}
+
+h2,
+h3 {
+  color: #4a5d7e; 
+  text-align: center; 
+}
+
+a {
+  color: #4a5d7e; 
+  text-decoration: none;
+}
+
+a:hover {
+  color: #4a5d7e;
+  text-decoration: underline;
+}
+
+/* Header Styles */
+header {
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid #eadcd6;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #4a5d7e;
+}
+header p {
+  margin: 0;
+  font-size: 1rem;
+  color: #4a5d7ec8;
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  padding: 0.8em;
+  background-color: #bfb4b4;
+  color: #4e4f52;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  font-size: 0.7rem;
+  max-width: 80%;
+  margin-top: 1em;
+  margin-bottom: 0em;
+}
+
+.btn:hover {
+  background-color: #6b8c9e;
+  text-decoration: underline;
+  color: white;
+}
+
+
+/* Footer Section */
+footer {
+  background-color: #789dbc;
+  color: #f5eded;
+  text-align: center;
+  padding: 20px 0;
+}
+
+footer a {
+  color: #f5dada;
+  text-decoration: underline;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: #f6cbcb;
+}
+
+
+/* Top Nav */
+.topnav {
+  background-color: #789dbc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  z-index: 100;
+} 
+.topnav a {
+  float: left;
+  color: #f5eded;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 19px;
+}
+
+/* .topnav {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center; 
+  gap: 5px;
+  padding: 10px 5px;
+}
+
+.topnav a {
+  padding: 8px 10px;
+  font-size: 14px;  
+  white-space: nowrap;
+} */
+
+.topnav a:hover {
+  background-color: #35697a;
+}
+
+.topnav a.active {
+  background-color: #426c90;
+  color: #f5eded;
+}
+
+.philosopher-image {
+  max-width: 200px;
+  height: 250px;
+  margin-bottom: 0.3rem;
+  border-radius: 50%;
+}
+
+
+.theme-toggle-btn {
+    position: absolute;  /* Change from relative to absolute */
+    right: 20px;         /* Add this to position from the right */
+    top: 50%;            /* Center vertically */
+    transform: translateY(-50%); 
+    cursor: pointer;
+    z-index: 100;
+    background: transparent; /* Make background transparent */
+    border: none;           /* Remove border */
+    padding: 0;  
+    font-size: 1.8rem;
+    transition: transform 0.2s ease;
+
+}
+.theme-toggle-btn:hover {
+    transform: translateY(-50%) scale(1.1); /* Slightly enlarge on hover */
+}
