@@ -8,6 +8,7 @@
   --philo-section: #f5efe7;
   --footer-a: #f5dada;
   --footer-a-hover:#f6cbcb;
+
 }
 
 [data-theme="dark"] {
@@ -32,7 +33,7 @@ body {
   background-color: var(--navbar-bg);
 }
 
-.philosopher-card {
+.grid-item {
   background: var(--card-bg);
 }
 
@@ -72,4 +73,15 @@ footer a {
 
 footer a:hover {
   color: var(--footer-a-hover)
+}
+.filter-section {
+  background: var(--card-bg);
+
+
+}
+.filter-section ul li a{
+  color: var(--header-text);
+}
+h3{
+  color: var(--header-text); 
 }
