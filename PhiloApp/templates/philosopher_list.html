@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Philosophers</title>
     <link rel="stylesheet" href="{% static 'css/philo_list.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/dark-styles-list.css' %}" />
     <div class="topnav">
       <a href="{% url 'index' %}">Home</a>
       <a class="active" href="{% url 'philosopher_list' %}">Philosophers</a>
@@ -19,10 +20,13 @@
           />
         </div>
       </div>
+      <button id="theme-toggle" class="theme-toggle-btn">
+        🌓 
+      </button>
     </div>
   </head>
   <body>
-    as
+    
     <header>
       <h1>Philosophers</h1>
     </header>
